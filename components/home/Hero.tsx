@@ -92,7 +92,7 @@ export default function Hero() {
           </span>
           <span className="hero-mask">
             <span style={{ "--d": "0.81s" } as React.CSSProperties}>
-              <span className="text-azure">actually works.</span>
+              <span className="text-azure-text">actually works.</span>
             </span>
           </span>
         </h1>
@@ -106,7 +106,7 @@ export default function Hero() {
         </p>
 
         <div
-          className="hero-fade mt-10 flex flex-wrap items-center gap-4"
+          className="hero-fade gap-fallback mt-10 flex flex-wrap items-center gap-4"
           style={{ "--d": "1.45s" } as React.CSSProperties}
         >
           <Magnetic>

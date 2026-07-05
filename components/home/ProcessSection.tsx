@@ -9,7 +9,7 @@ import { processSteps } from "@/lib/data";
  */
 export default function ProcessSection() {
   return (
-    <section className="border-t border-white/10 bg-surface py-section">
+    <section className="border-t border-paper/10 bg-surface py-section">
       <div className="container-page">
         <SectionHead
           eyebrow="Process"
@@ -35,7 +35,7 @@ export default function ProcessSection() {
                       aria-hidden="true"
                       className="absolute left-0 top-0 block size-[11px] rounded-full border border-azure bg-ink"
                     />
-                    <p className="font-mono text-label text-azure">{s.step}</p>
+                    <p className="font-mono text-label text-azure-text">{s.step}</p>
                     <h3 className="mt-2 font-display text-lead font-medium text-paper">
                       {s.title}
                     </h3>
@@ -55,7 +55,7 @@ export default function ProcessSection() {
                 aria-hidden="true"
                 className="absolute -left-[6px] top-1 block size-[11px] rounded-full border border-azure bg-ink"
               />
-              <p className="font-mono text-label text-azure">{s.step}</p>
+              <p className="font-mono text-label text-azure-text">{s.step}</p>
               <h3 className="mt-1.5 font-display text-lead font-medium text-paper">
                 {s.title}
               </h3>

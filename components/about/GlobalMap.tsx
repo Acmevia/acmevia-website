@@ -32,11 +32,11 @@ export default function GlobalMap() {
       viewBox="0 0 1000 520"
       role="img"
       aria-label="Delivery map: projects delivered from Sri Lanka to Europe, North America, the Middle East, Asia-Pacific, and Australia"
-      className="w-full border border-white/10 bg-surface"
+      className="w-full border border-paper/10 bg-surface"
     >
       <defs>
         <pattern id="dotgrid" width="26" height="26" patternUnits="userSpaceOnUse">
-          <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.07)" />
+          <circle cx="1" cy="1" r="1" fill="var(--color-paper)" fillOpacity="0.07" />
         </pattern>
       </defs>
       <rect width="1000" height="520" fill="url(#dotgrid)" />
@@ -76,7 +76,8 @@ export default function GlobalMap() {
             x={n.x}
             y={n.y - 16}
             textAnchor="middle"
-            fill="rgba(255,255,255,0.55)"
+            fill="var(--color-paper)"
+            fillOpacity="0.55"
             fontSize="11"
             letterSpacing="2"
             fontFamily="var(--font-mono)"
@@ -102,7 +103,7 @@ export default function GlobalMap() {
           x={hub.x}
           y={hub.y + 30}
           textAnchor="middle"
-          fill="#00b2ff"
+          fill="var(--color-azure-text)"
           fontSize="12"
           letterSpacing="2.5"
           fontFamily="var(--font-mono)"

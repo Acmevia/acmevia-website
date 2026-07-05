@@ -20,9 +20,20 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Theme switch feels premium, not jarring — guarded for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  .nav-glass,
+  .band-light {
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+}
+
 ::selection {
   background: var(--color-azure);
-  color: var(--color-ink);
+  color: var(--color-azure-ink);
 }
 
 :focus-visible {
@@ -61,7 +72,86 @@ body::after {
   letter-spacing: var(--text-label--letter-spacing);
   line-height: var(--text-label--line-height);
   text-transform: uppercase;
-  color: var(--color-azure);
+  /* azure-text = azure in dark mode, deep azure in light (AA on white) */
+  color: var(--color-azure-text);
+}
+
+/* ---- Nav glass — solid enough to read over any content ----
+   Near-black glass at 86% + blur; light mode flips via color-mix.
+   Two fallback tiers: pre-color-mix engines get the literal dark
+   glass; engines without backdrop-filter get a fully solid surface
+   so nav/menu text NEVER sits on transparency. */
+.nav-glass {
+  background: rgba(10, 10, 10, 0.88);
+  background: color-mix(in srgb, var(--color-ink) 86%, transparent);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 178, 255, 0.2);
+}
+@supports not (
+  (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px))
+) {
+  .nav-glass {
+    background: var(--color-surface);
+  }
+}
+
+/* ---- Theme switch (nav) — slider with an azure thumb ---- */
+.theme-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  width: 3.25rem;
+  height: 1.75rem;
+  padding: 0.1875rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-color: color-mix(in srgb, var(--color-paper) 18%, transparent);
+  background: color-mix(in srgb, var(--color-paper) 6%, transparent);
+  cursor: pointer;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+.theme-switch::before {
+  /* extends the tap target to ≥44px without changing the visual */
+  content: "";
+  position: absolute;
+  inset: -0.625rem;
+}
+.theme-switch:hover {
+  border-color: rgba(0, 178, 255, 0.6);
+}
+.theme-switch-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: var(--color-azure);
+  color: var(--color-azure-ink);
+  transform: translateX(0);
+  transition: transform 0.35s var(--ease-out-expo);
+}
+[data-theme="light"] .theme-switch-thumb {
+  transform: translateX(1.4375rem);
+}
+/* icon pair — CSS swaps them so SSR markup never mismatches */
+.theme-switch .icon-sun {
+  display: none;
+}
+[data-theme="light"] .theme-switch .icon-sun {
+  display: block;
+}
+[data-theme="light"] .theme-switch .icon-moon {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-switch-thumb {
+    transition: none;
+  }
 }
 
 /* ---- Buttons — exactly one primary pattern sitewide ---- */
@@ -87,7 +177,7 @@ body::after {
 
 .btn-primary {
   background: var(--color-azure);
-  color: var(--color-ink);
+  color: var(--color-azure-ink);
   box-shadow: 0 0 0 rgba(0, 178, 255, 0);
 }
 .btn-primary:hover {
@@ -96,24 +186,30 @@ body::after {
 
 .btn-ghost {
   border: 1px solid rgba(255, 255, 255, 0.24);
+  border-color: color-mix(in srgb, var(--color-paper) 24%, transparent);
   color: var(--color-paper);
   background: transparent;
 }
 .btn-ghost:hover {
   border-color: var(--color-azure);
-  color: var(--color-azure);
+  color: var(--color-azure-text);
 }
 
-/* ---- Scroll reveal (fade + 24px rise) ---- */
+/* ---- Scroll reveal (fade + 24px rise) ----
+   The hidden state is scoped to html.js (set by the inline boot
+   script): if JS never runs, content renders in its final visible
+   state instead of staying invisible. */
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
   transition:
     opacity 0.9s var(--ease-out-expo),
     transform 0.9s var(--ease-out-expo);
   transition-delay: var(--reveal-delay, 0s);
 }
-.reveal.is-in {
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.js .reveal.is-in {
   opacity: 1;
   transform: none;
 }
@@ -236,7 +332,10 @@ body::after {
   left: 118%;
 }
 
-/* ---- Light band with slashed edges (echoes the monogram) ---- */
+/* ---- Inverted band with slashed edges (echoes the monogram) ----
+   paper-on-ink tokens, so it flips with the theme: white band on the
+   dark site, black band on the light site. Browsers without clip-path
+   simply render straight edges — content is unaffected. */
 .band-light {
   background: var(--color-paper);
   color: var(--color-ink);
@@ -247,18 +346,22 @@ body::after {
   color: var(--color-paper);
 }
 /* Azure fails contrast as small text on white (2.4:1) — eyebrows on
-   light bands drop to ink. Azure stays decorative-only here. */
+   the band drop to the band's own text color at 60%. Token-driven,
+   so it holds in both themes. */
 .band-light .eyebrow {
   color: rgba(0, 0, 0, 0.6);
+  color: color-mix(in srgb, var(--color-ink) 60%, transparent);
 }
 
 /* ---- Line that draws itself when its Reveal parent enters ---- */
 .grow-x {
-  transform: scaleX(0);
   transform-origin: left center;
   transition: transform 1.8s var(--ease-out-expo) 0.15s;
 }
-.reveal.is-in .grow-x {
+.js .grow-x {
+  transform: scaleX(0);
+}
+.js .reveal.is-in .grow-x {
   transform: scaleX(1);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -293,22 +396,28 @@ body::after {
   );
 }
 
-/* ---- Global delivery map: arcs draw when the section reveals ---- */
+/* ---- Global delivery map: arcs draw when the section reveals ----
+   Hidden states scoped to html.js so the map is fully drawn if JS
+   (or IntersectionObserver) is unavailable. */
 .map-arc {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
   transition: stroke-dashoffset 2s var(--ease-out-expo);
   transition-delay: var(--d, 0.3s);
 }
-.reveal.is-in .map-arc {
+.js .map-arc {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.js .reveal.is-in .map-arc {
   stroke-dashoffset: 0;
 }
 .map-node {
-  opacity: 0;
   transition: opacity 0.8s var(--ease-out-expo);
   transition-delay: var(--d, 1s);
 }
-.reveal.is-in .map-node {
+.js .map-node {
+  opacity: 0;
+}
+.js .reveal.is-in .map-node {
   opacity: 1;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -325,49 +434,119 @@ body::after {
    the drawn line reaches each node).
    ------------------------------------------------------------ */
 .tl-node-dot {
-  transform: scale(0.35);
-  opacity: 0.35;
   transition:
     transform 0.7s var(--ease-out-expo),
     opacity 0.7s var(--ease-out-expo),
     box-shadow 0.7s var(--ease-out-expo);
 }
-.tl-in .tl-node-dot {
+.js .tl-node-dot {
+  transform: scale(0.35);
+  opacity: 0.35;
+}
+.tl-in .tl-node-dot,
+.js .tl-in .tl-node-dot {
   transform: scale(1);
   opacity: 1;
   box-shadow: 0 0 18px rgba(0, 178, 255, 0.8);
 }
-.tl-pulse {
+.js .tl-pulse {
   opacity: 0;
 }
 .tl-in .tl-pulse {
   opacity: 1;
 }
 
-/* Card: clip-path slash reveal, diagonal edge matching the logo cut */
+/* Card: clip-path slash reveal, diagonal edge matching the logo cut.
+   Hidden state under html.js only; browsers without clip-path ignore
+   those lines and fall back to the plain opacity fade. */
 .tl-card {
-  opacity: 0;
-  clip-path: polygon(0 0, 0 0, -22% 100%, -22% 100%);
   transition:
     clip-path 1.1s var(--ease-out-expo) 0.1s,
     opacity 0.6s var(--ease-out-expo) 0.1s,
     border-color 0.4s var(--ease-out-expo);
 }
-.tl-in .tl-card {
+.js .tl-card {
+  opacity: 0;
+  clip-path: polygon(0 0, 0 0, -22% 100%, -22% 100%);
+}
+.tl-in .tl-card,
+.js .tl-in .tl-card {
   opacity: 1;
   clip-path: polygon(0 0, 122% 0, 100% 100%, -22% 100%);
 }
 
 .tl-label {
-  opacity: 0;
-  transform: translateX(-8px);
   transition:
     opacity 0.8s var(--ease-out-expo) 0.2s,
     transform 0.8s var(--ease-out-expo) 0.2s;
 }
-.tl-in .tl-label {
+.js .tl-label {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+.tl-in .tl-label,
+.js .tl-in .tl-label {
   opacity: 1;
   transform: none;
+}
+
+/* ---- CMS-uploaded logo: theme-variant swap --------------------
+   When the CMS provides raster/SVG logo files, the dark-bg variant
+   shows on the dark theme and the light-bg variant on light. Done
+   in CSS so server markup is identical in both themes. */
+.logo-custom-light {
+  display: none;
+}
+[data-theme="light"] .logo-custom-dark {
+  display: none;
+}
+[data-theme="light"] .logo-custom-light {
+  display: inline-block;
+}
+
+/* ---- Reviews: star rating + mobile snap carousel ---- */
+.review-stars {
+  display: inline-flex;
+  gap: 0.25rem;
+  color: var(--color-azure-text);
+}
+.review-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  /* bleed to the viewport edge so the peeking card invites a swipe */
+  margin-inline: calc(var(--spacing-gutter) * -1);
+  padding-inline: var(--spacing-gutter);
+  padding-bottom: 0.5rem;
+}
+.review-track::-webkit-scrollbar {
+  display: none;
+}
+.review-track > * {
+  scroll-snap-align: start;
+  flex: 0 0 min(24rem, 86%);
+}
+@media (min-width: 768px) {
+  .review-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+  .review-track > * {
+    flex: none;
+  }
+}
+
+/* ---- Flex-gap fallback for engines without flexbox gap ---- */
+@supports not (gap: 1rem) {
+  .gap-fallback > * + * {
+    margin-left: 1rem;
+  }
 }
 
 /* ============================================================

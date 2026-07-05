@@ -25,7 +25,7 @@ export default function BookDemo() {
     : site.whatsappLink;
 
   return (
-    <div className="border border-white/10 bg-surface p-8 md:p-10">
+    <div className="border border-paper/10 bg-surface p-8 md:p-10">
       <p className="eyebrow">Book a Free Demo</p>
       <h3 className="mt-3 font-display text-title font-medium text-paper">
         Pick a slot. We'll confirm within the day.
@@ -54,7 +54,7 @@ export default function BookDemo() {
                     className={`block w-full border px-4 py-2.5 font-mono text-meta transition-colors duration-300 ${
                       active
                         ? "border-azure bg-azure text-ink"
-                        : "border-white/15 text-paper/70 hover:border-azure/60 hover:text-paper"
+                        : "border-paper/15 text-paper/70 hover:border-azure/60 hover:text-paper"
                     }`}
                   >
                     {s}
@@ -66,7 +66,7 @@ export default function BookDemo() {
         ))}
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6">
+      <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-paper/10 pt-6">
         <a
           href={waHref}
           target="_blank"

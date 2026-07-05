@@ -40,7 +40,22 @@ export default function ProjectTimeline({ projects }: { projects: Project[] }) {
     if (!container || !svg || !path || !ghost) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    gsap.registerPlugin(ScrollTrigger);
+
+    // Fail-safe: if the animation stack is unavailable (old browser,
+    // blocked script), everything renders in its final visible state.
+    const revealAll = () => {
+      container
+        .querySelectorAll<HTMLElement>("[data-tl-row]")
+        .forEach((r) => r.classList.add("tl-in"));
+      path.style.strokeDashoffset = "0";
+    };
+
+    try {
+      gsap.registerPlugin(ScrollTrigger);
+    } catch {
+      revealAll();
+      return;
+    }
 
     /** Catmull-Rom through the anchor points → cubic Bézier path string. */
     const buildPath = () => {
@@ -81,9 +96,15 @@ export default function ProjectTimeline({ projects }: { projects: Project[] }) {
       return path.getTotalLength();
     };
 
-    let length = buildPath();
-    path.style.strokeDasharray = `${length}`;
-    path.style.strokeDashoffset = reduced ? "0" : `${length}`;
+    let length = 0;
+    try {
+      length = buildPath();
+      path.style.strokeDasharray = `${length}`;
+      path.style.strokeDashoffset = reduced ? "0" : `${length}`;
+    } catch {
+      revealAll();
+      return;
+    }
 
     const rows = Array.from(
       container.querySelectorAll<HTMLElement>("[data-tl-row]")
@@ -139,20 +160,23 @@ export default function ProjectTimeline({ projects }: { projects: Project[] }) {
 
     // Re-measure the path when layout changes.
     let raf = 0;
-    const ro = new ResizeObserver(() => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const prevOffset = parseFloat(path.style.strokeDashoffset) / (length || 1);
-        length = buildPath();
-        path.style.strokeDasharray = `${length}`;
-        path.style.strokeDashoffset = `${length * (isNaN(prevOffset) ? 1 : prevOffset)}`;
-        ScrollTrigger.refresh();
+    let ro: ResizeObserver | undefined;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(() => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const prevOffset = parseFloat(path.style.strokeDashoffset) / (length || 1);
+          length = buildPath();
+          path.style.strokeDasharray = `${length}`;
+          path.style.strokeDashoffset = `${length * (isNaN(prevOffset) ? 1 : prevOffset)}`;
+          ScrollTrigger.refresh();
+        });
       });
-    });
-    ro.observe(container);
+      ro.observe(container);
+    }
 
     return () => {
-      ro.disconnect();
+      ro?.disconnect();
       cancelAnimationFrame(raf);
       ctx.revert();
     };
@@ -170,7 +194,8 @@ export default function ProjectTimeline({ projects }: { projects: Project[] }) {
         <path
           ref={ghostRef}
           fill="none"
-          stroke="rgba(255,255,255,0.07)"
+          stroke="var(--color-paper)"
+          strokeOpacity="0.07"
           strokeWidth="1"
         />
         <path
@@ -220,25 +245,34 @@ export default function ProjectTimeline({ projects }: { projects: Project[] }) {
                       : "lg:col-start-3 lg:justify-self-start"
                   }`}
                 >
-                  <article className="tl-card border border-white/12 bg-surface p-7 transition-colors hover:border-azure/40 md:p-9">
+                  <article className="tl-card border border-paper/12 bg-surface p-7 transition-colors hover:border-azure/40 md:p-9">
+                    {p.images?.[0] && (
+                      // eslint-disable-next-line @next/next/no-img-element -- static export: no optimizer
+                      <img
+                        src={p.images[0].src}
+                        alt={p.images[0].alt}
+                        loading="lazy"
+                        className="mb-6 aspect-video w-full border border-paper/10 object-cover"
+                      />
+                    )}
                     <TypeLine
                       text={p.meta}
-                      className="text-[0.625rem] uppercase tracking-[0.18em] text-azure/80"
+                      className="text-[0.625rem] uppercase tracking-[0.18em] text-azure-text/80"
                     />
                     <h2 className="mt-4 font-display text-title font-semibold text-paper">
                       {p.title}
                     </h2>
                     <p className="mt-3 text-meta text-paper/60">{p.summary}</p>
-                    <div className="mt-6 flex items-end justify-between gap-6 border-t border-white/10 pt-5">
+                    <div className="mt-6 flex items-end justify-between gap-6 border-t border-paper/10 pt-5">
                       <div>
-                        <p className="font-display text-display font-semibold leading-none text-azure">
+                        <p className="font-display text-display font-semibold leading-none text-azure-text">
                           {p.metric.value}
                         </p>
                         <p className="mt-2 font-mono text-label uppercase tracking-[0.14em] text-paper/50">
                           {p.metric.label}
                         </p>
                       </div>
-                      <span className="whitespace-nowrap border border-white/15 px-3 py-1.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-paper/60">
+                      <span className="whitespace-nowrap border border-paper/15 px-3 py-1.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-paper/60">
                         {p.solution}
                       </span>
                     </div>

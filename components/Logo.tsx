@@ -1,3 +1,5 @@
+import { siteSettings } from "@/lib/data";
+
 /**
  * The Acmevia "AV" monogram, traced as vector geometry so it stays
  * crisp at every size and inherits color via `currentColor`.
@@ -35,7 +37,12 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-/** Mark + wordmark lockup used in the nav and footer. */
+/** Mark + wordmark lockup used in the nav and footer.
+ *
+ * When logo files are uploaded through the CMS (content/settings.json →
+ * /admin/), they replace the traced lockup: the dark-bg variant shows on
+ * the dark theme, the light-bg variant on light (CSS-swapped via
+ * .logo-custom-* so both themes share the same markup). */
 export function LogoLockup({
   className = "",
   markClass = "h-6 w-auto",
@@ -43,8 +50,21 @@ export function LogoLockup({
   className?: string;
   markClass?: string;
 }) {
+  const { logo } = siteSettings;
+  if (logo.dark) {
+    const light = logo.light ?? logo.dark;
+    return (
+      <span className={`inline-flex items-center ${className}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- static export: no image optimizer */}
+        <img src={logo.dark} alt={logo.alt} className="logo-custom-dark h-7 w-auto" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={light} alt={logo.alt} className="logo-custom-light h-7 w-auto" />
+      </span>
+    );
+  }
   return (
     <span className={`inline-flex items-center gap-3 ${className}`}>
+      {/* brand mark stays true azure in both themes (logos are contrast-exempt) */}
       <LogoMark className={`${markClass} text-azure`} />
       <span className="font-display text-[1.05rem] font-semibold tracking-[0.08em] leading-none">
         ACMEVIA

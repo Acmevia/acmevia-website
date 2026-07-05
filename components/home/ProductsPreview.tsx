@@ -47,7 +47,7 @@ function TiltCard({
         href={href}
         onPointerMove={onMove}
         onPointerLeave={onLeave}
-        className="group relative block h-full border border-white/10 bg-surface p-8 will-change-transform transition-colors duration-500 hover:border-azure/50 md:p-10"
+        className="group relative block h-full border border-paper/10 bg-surface p-8 will-change-transform transition-colors duration-500 hover:border-azure/50 md:p-10"
         style={
           {
             // Pointer-tracked azure sheen, revealed on hover
@@ -83,7 +83,7 @@ export default function ProductsPreview() {
               <p className="mt-6 border-l-2 border-azure pl-4 text-meta text-paper/80">
                 {p.keyClaim}
               </p>
-              <p className="mt-8 font-mono text-label uppercase tracking-[0.14em] text-azure">
+              <p className="mt-8 font-mono text-label uppercase tracking-[0.14em] text-azure-text">
                 Explore
                 <span className="ml-2 inline-block transition-transform duration-500 ease-out-expo group-hover:translate-x-1.5">
                   →

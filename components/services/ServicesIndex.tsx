@@ -51,7 +51,7 @@ export default function ServicesIndex({ items }: { items: Item[] }) {
   return (
     <nav aria-label="Services on this page" className="flex gap-5">
       {/* Progress rail */}
-      <div aria-hidden="true" className="relative w-px bg-white/10">
+      <div aria-hidden="true" className="relative w-px bg-paper/10">
         <div
           className="absolute left-0 top-0 w-px bg-azure transition-[height] duration-200"
           style={{ height: `${progress * 100}%` }}
@@ -71,7 +71,7 @@ export default function ServicesIndex({ items }: { items: Item[] }) {
             >
               <span
                 className={`font-mono text-label ${
-                  active === item.id ? "text-azure" : "text-paper/30"
+                  active === item.id ? "text-azure-text" : "text-paper/30"
                 }`}
               >
                 {item.index}

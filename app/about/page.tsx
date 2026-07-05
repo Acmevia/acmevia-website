@@ -3,7 +3,8 @@ import Reveal from "@/components/Reveal";
 import SectionHead from "@/components/SectionHead";
 import GlobalMap from "@/components/about/GlobalMap";
 import FinalCta from "@/components/FinalCta";
-import { capabilities, values } from "@/lib/data";
+import ReviewCard from "@/components/ReviewCard";
+import { capabilities, values, reviews } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About — A boutique engineering partner in Sri Lanka",
@@ -16,7 +17,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Opener */}
-      <section className="border-b border-white/10 pb-16 pt-40">
+      <section className="border-b border-paper/10 pb-16 pt-40">
         <div className="container-page">
           <Reveal>
             <p className="eyebrow">About</p>
@@ -43,7 +44,7 @@ export default function AboutPage() {
               our clients operate.
             </p>
           </Reveal>
-          <Reveal delay={0.1} className="border-t-2 border-white/15 pt-8">
+          <Reveal delay={0.1} className="border-t-2 border-paper/15 pt-8">
             <h2 className="eyebrow text-paper/40">Mission</h2>
             <p className="mt-5 font-display text-title font-medium text-paper/80">
               Simplify processes and empower businesses through reliable,
@@ -55,7 +56,7 @@ export default function AboutPage() {
       </section>
 
       {/* Capability, not org chart */}
-      <section className="border-t border-white/10 bg-surface py-section">
+      <section className="border-t border-paper/10 bg-surface py-section">
         <div className="container-page">
           <SectionHead
             eyebrow="The team"
@@ -67,9 +68,9 @@ export default function AboutPage() {
               <Reveal
                 key={c.title}
                 delay={i * 0.08}
-                className="border border-white/10 bg-ink p-7"
+                className="border border-paper/10 bg-ink p-7"
               >
-                <p className="font-mono text-label text-azure">0{i + 1}</p>
+                <p className="font-mono text-label text-azure-text">0{i + 1}</p>
                 <h3 className="mt-4 font-display text-lead font-medium text-paper">
                   {c.title}
                 </h3>
@@ -84,16 +85,16 @@ export default function AboutPage() {
       <section className="py-section">
         <div className="container-page">
           <SectionHead eyebrow="How we work" title="Three habits we won't trade." />
-          <ul className="mt-14 border-t border-white/10">
+          <ul className="mt-14 border-t border-paper/10">
             {values.map((v, i) => (
               <Reveal
                 as="li"
                 key={v.title}
                 delay={i * 0.06}
-                className="grid gap-3 border-b border-white/10 py-9 md:grid-cols-[1fr_1.4fr] md:gap-12"
+                className="grid gap-3 border-b border-paper/10 py-9 md:grid-cols-[1fr_1.4fr] md:gap-12"
               >
                 <h3 className="font-display text-title font-medium text-paper">
-                  <span aria-hidden="true" className="mr-4 font-mono text-label text-azure">
+                  <span aria-hidden="true" className="mr-4 font-mono text-label text-azure-text">
                     /{i + 1}
                   </span>
                   {v.title}
@@ -105,8 +106,26 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* All reviews (the landing page shows only the featured set) */}
+      <section aria-label="All client reviews" className="border-t border-paper/10 py-section">
+        <div className="container-page">
+          <SectionHead
+            eyebrow="Reviews"
+            title="Every review, unedited."
+            lead="From the platforms clients wrote them on — each card links to the original."
+          />
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {reviews.map((r, i) => (
+              <Reveal key={`${r.name}-${r.company}`} delay={i * 0.06} className="h-full">
+                <ReviewCard review={r} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Global delivery */}
-      <section className="border-t border-white/10 bg-surface py-section">
+      <section className="border-t border-paper/10 bg-surface py-section">
         <div className="container-page">
           <SectionHead
             eyebrow="Global delivery"

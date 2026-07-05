@@ -1,0 +1,124 @@
+{
+  "items": [
+    {
+      "id": "custom-web-development",
+      "name": "Custom Web Development",
+      "short": "Systems shaped around your workflow, not the other way round.",
+      "glyph": "web",
+      "problem": "Off-the-shelf software forces your team to work the way the software wants. The workarounds pile up — spreadsheets on the side, double entry, steps nobody can explain.",
+      "delivered": [
+        "A web application designed around your actual process",
+        "Role-based access, reporting, and audit trails",
+        "Integrations with the tools you already use",
+        "Documentation and training for your team"
+      ],
+      "outcome": "One system that matches how you work. Fewer manual steps, fewer errors, and numbers you can trust.",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "id": "mobile-app-development",
+      "name": "Mobile App Development",
+      "short": "Your operation in your team's pocket — online or offline.",
+      "glyph": "mobile",
+      "problem": "Field teams and customers live on their phones. If your process still needs a desk, a laptop, or a phone call, work waits — and waiting costs money.",
+      "delivered": [
+        "iOS and Android apps from one codebase",
+        "Offline-first design for unreliable connections",
+        "Push notifications tied to real business events",
+        "App Store and Play Store publishing, handled"
+      ],
+      "outcome": "Work gets captured where it happens. Same-day data instead of end-of-week paperwork.",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "id": "wordpress-websites",
+      "name": "WordPress Websites",
+      "short": "A fast, editable site your team can run without us.",
+      "glyph": "wordpress",
+      "problem": "Your website is often the first meeting a client has with you. A slow, dated, or hard-to-edit site quietly loses the deals you never hear about.",
+      "delivered": [
+        "Custom WordPress theme — no page-builder bloat",
+        "Editor experience your marketing team can actually use",
+        "Speed, SEO, and security hardening as standard",
+        "Hosting setup and a maintenance retainer if you want one"
+      ],
+      "outcome": "A site that loads fast, ranks properly, and gets updated in minutes — by your own people.",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "id": "ecommerce",
+      "name": "E-commerce",
+      "short": "A store that sells while you sleep — and syncs with your stock.",
+      "glyph": "ecommerce",
+      "problem": "Selling online fails in the details: stock that doesn't match reality, checkouts that leak buyers, orders retyped into other systems by hand.",
+      "delivered": [
+        "Storefront built for conversion, not decoration",
+        "Live inventory sync with your warehouse or ERP",
+        "Local and international payment gateways",
+        "Order, delivery, and returns workflows"
+      ],
+      "outcome": "More completed checkouts, accurate stock, and orders that flow straight into fulfilment.",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "id": "erp-systems",
+      "name": "ERP Systems",
+      "short": "Every department reading from the same numbers.",
+      "glyph": "erp",
+      "problem": "When finance, inventory, sales, and production each keep their own records, month-end becomes archaeology. Decisions get made on numbers that disagree.",
+      "delivered": [
+        "ERP scoped to your operation — not a bloated suite",
+        "Finance, inventory, procurement, and production modules",
+        "Migration from spreadsheets and legacy systems",
+        "Dashboards for owners, not just accountants"
+      ],
+      "outcome": "One source of truth. Month-end closes in days, not weeks, and managers see problems while they're still small.",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "id": "crm-systems",
+      "name": "CRM Systems",
+      "short": "No lead forgotten, no follow-up missed.",
+      "glyph": "crm",
+      "problem": "Leads arrive by phone, WhatsApp, email, and referral — then live in someone's head. When that person is busy or leaves, the pipeline leaves with them.",
+      "delivered": [
+        "A CRM matched to your actual sales process",
+        "Lead capture from every channel in one queue",
+        "Automated follow-up reminders and quotation tracking",
+        "Pipeline reporting the whole team can see"
+      ],
+      "outcome": "Every enquiry tracked to a yes or a no. More deals closed from the leads you already have.",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "id": "business-automation",
+      "name": "Business Automation",
+      "short": "The repetitive 20% of everyone's week, done by software.",
+      "glyph": "automation",
+      "problem": "Copying data between systems. Chasing approvals. Sending the same report every Monday. Skilled people spend hours on work a machine should do.",
+      "delivered": [
+        "Process audit to find the highest-value automations",
+        "Automated data flows between your existing tools",
+        "Approval chains, alerts, and scheduled reports",
+        "Error handling and logs so nothing fails silently"
+      ],
+      "outcome": "Hours back every week, per person. Work moves without being pushed.",
+      "image": { "src": "", "alt": "" }
+    },
+    {
+      "id": "ui-ux-design",
+      "name": "UI/UX Design",
+      "short": "Software people don't need a manual to use.",
+      "glyph": "uiux",
+      "problem": "If a system is confusing, people avoid it — and then the data in it stops being true. Adoption is a design problem before it's a training problem.",
+      "delivered": [
+        "User research and journey mapping",
+        "Wireframes and clickable prototypes before any code",
+        "A design system your product can grow with",
+        "Usability testing with your real users"
+      ],
+      "outcome": "Tools your team actually uses. Less training, fewer support tickets, cleaner data.",
+      "image": { "src": "", "alt": "" }
+    }
+  ]
+}

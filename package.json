@@ -7,8 +7,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cms": "npx decap-server"
   },
+  "browserslist": [
+    ">0.3%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
     "gsap": "^3.12.7",
     "next": "^15.5.0",

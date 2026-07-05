@@ -1,0 +1,138 @@
+# Decap CMS configuration — the admin UI at /admin/ edits the JSON files
+# in /content/. Every save is a Git commit to the repo, and the host
+# rebuilds the site from it. See CMS_GUIDE.md for setup and usage.
+
+backend:
+  name: github
+  repo: Acmevia/acmevia-website
+  branch: main
+  # Auth gateway for the GitHub backend. Required in production —
+  # see CMS_GUIDE.md § "One-time setup". Local editing does not need it.
+  base_url: https://YOUR-OAUTH-GATEWAY.example.com
+
+# Local editing without any auth: run `npm run cms` alongside `npm run dev`
+# and open http://localhost:3000/admin/ (or the decap-server proxy page).
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: https://acmevia.com
+display_url: https://acmevia.com
+
+collections:
+  - name: "site"
+    label: "Site settings"
+    files:
+      - name: "settings"
+        label: "Logo"
+        file: "content/settings.json"
+        description: "Site logo. Upload both variants — one for the dark theme, one for the light theme."
+        fields:
+          - label: "Logo"
+            name: "logo"
+            widget: "object"
+            fields:
+              - { label: "Logo for dark background (dark theme)", name: "dark", widget: "image", required: false, allow_multiple: false, hint: "SVG or transparent PNG, at least 56px tall. Leave empty to use the built-in AV monogram." }
+              - { label: "Logo for light background (light theme)", name: "light", widget: "image", required: false, allow_multiple: false, hint: "Shown when a visitor switches to light mode. Falls back to the dark-background logo if empty." }
+              - { label: "Alt text", name: "alt", widget: "string", default: "Acmevia", hint: "Read by screen readers — usually just the company name." }
+
+  - name: "content"
+    label: "Site content"
+    files:
+      - name: "services"
+        label: "Services"
+        file: "content/services.json"
+        description: "The services list. Drag entries to reorder — the order here is the order on the site."
+        fields:
+          - label: "Services"
+            name: "items"
+            widget: "list"
+            label_singular: "service"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "ID (URL slug)", name: "id", widget: "string", hint: "Lowercase with hyphens, e.g. custom-web-development. Changing it changes the section link." }
+              - { label: "Title", name: "name", widget: "string" }
+              - { label: "One-line summary", name: "short", widget: "string", hint: "Shown in list rows on the home page." }
+              - label: "Glyph (line-art icon)"
+                name: "glyph"
+                widget: "select"
+                options: ["web", "mobile", "wordpress", "ecommerce", "erp", "crm", "automation", "uiux"]
+              - { label: "The client problem", name: "problem", widget: "text" }
+              - label: "What's delivered"
+                name: "delivered"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - { label: "Business outcome", name: "outcome", widget: "text" }
+              - label: "Image (optional)"
+                name: "image"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Image", name: "src", widget: "image", required: false, allow_multiple: false }
+                  - { label: "Alt text", name: "alt", widget: "string", required: false, hint: "Describe the image for screen readers." }
+
+      - name: "projects"
+        label: "Projects"
+        file: "content/projects.json"
+        description: "Feeds the animated Projects timeline. Drag to reorder — chronological (oldest first) reads best. Keep 5–8 entries."
+        fields:
+          - label: "Projects"
+            name: "items"
+            widget: "list"
+            label_singular: "project"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID (unique slug)", name: "id", widget: "string", hint: "Lowercase with hyphens, e.g. erp-manufacturing." }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Client / industry", name: "client", widget: "string", hint: "Industry descriptor, or the client name once you have permission." }
+              - { label: "Region", name: "region", widget: "string" }
+              - { label: "Year", name: "year", widget: "string" }
+              - { label: "Service type", name: "solution", widget: "string", hint: "E.g. ERP System, E-commerce, Acmevia LMS." }
+              - { label: "Description", name: "summary", widget: "text", hint: "2–3 sentences: the problem, then what shipped." }
+              - label: "Outcome metric"
+                name: "metric"
+                widget: "object"
+                fields:
+                  - { label: "Value", name: "value", widget: "string", hint: "One concrete number: -60%, 12,000, 0." }
+                  - { label: "Label", name: "label", widget: "string", hint: "What the number measures, lowercase." }
+              - { label: "Ticker line", name: "meta", widget: "string", hint: "Typed-out line on the card. Format: INDUSTRY // REGION // SOLUTION // YEAR" }
+              - label: "Images / gallery (optional)"
+                name: "images"
+                widget: "list"
+                required: false
+                label_singular: "image"
+                summary: "{{fields.alt}}"
+                fields:
+                  - { label: "Image", name: "src", widget: "image", allow_multiple: false }
+                  - { label: "Alt text", name: "alt", widget: "string", hint: "Describe the image for screen readers." }
+
+      - name: "reviews"
+        label: "Reviews"
+        file: "content/reviews.json"
+        description: "Client reviews. 'Featured' ones appear on the home page reviews section; the first two NON-featured ones appear as pull quotes in the white outcomes band. All reviews show on the About page."
+        fields:
+          - label: "Reviews"
+            name: "items"
+            widget: "list"
+            label_singular: "review"
+            summary: "{{fields.name}} — {{fields.company}}"
+            fields:
+              - { label: "Author name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Company", name: "company", widget: "string" }
+              - { label: "Avatar (optional)", name: "avatar", widget: "image", required: false, allow_multiple: false, hint: "Square photo. When empty, an initials avatar is shown." }
+              - { label: "Avatar alt text", name: "avatarAlt", widget: "string", required: false }
+              - { label: "Star rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, default: 5 }
+              - { label: "Quote", name: "quote", widget: "text", hint: "Keep under ~40 words — the layout rewards short." }
+              - label: "Source platform"
+                name: "platform"
+                widget: "select"
+                options:
+                  - { label: "Facebook", value: "facebook" }
+                  - { label: "Google Reviews", value: "google" }
+                  - { label: "Instagram", value: "instagram" }
+                  - { label: "LinkedIn", value: "linkedin" }
+                  - { label: "Other", value: "other" }
+              - { label: "Link to original review", name: "url", widget: "string", required: false, hint: "Full URL. The platform badge links here." }
+              - { label: "Featured on landing page", name: "featured", widget: "boolean", default: false }

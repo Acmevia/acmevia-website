@@ -30,7 +30,7 @@ export default function Footer() {
                 <li key={s.id}>
                   <Link
                     href={`/services/#${s.id}`}
-                    className="text-meta text-paper/70 transition-colors hover:text-azure"
+                    className="text-meta text-paper/70 transition-colors hover:text-azure-text"
                   >
                     {s.name}
                   </Link>
@@ -46,7 +46,7 @@ export default function Footer() {
                 <li key={p.id}>
                   <Link
                     href={`/products/#${p.id}`}
-                    className="text-meta text-paper/70 transition-colors hover:text-azure"
+                    className="text-meta text-paper/70 transition-colors hover:text-azure-text"
                   >
                     {p.name}
                   </Link>
@@ -56,17 +56,17 @@ export default function Footer() {
             <h2 className="eyebrow mb-5 mt-8 text-paper/40">Company</h2>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/projects/" className="text-meta text-paper/70 transition-colors hover:text-azure">
+                <Link href="/projects/" className="text-meta text-paper/70 transition-colors hover:text-azure-text">
                   Projects
                 </Link>
               </li>
               <li>
-                <Link href="/about/" className="text-meta text-paper/70 transition-colors hover:text-azure">
+                <Link href="/about/" className="text-meta text-paper/70 transition-colors hover:text-azure-text">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/contact/" className="text-meta text-paper/70 transition-colors hover:text-azure">
+                <Link href="/contact/" className="text-meta text-paper/70 transition-colors hover:text-azure-text">
                   Contact
                 </Link>
               </li>
@@ -77,12 +77,12 @@ export default function Footer() {
             <h2 className="eyebrow mb-5 text-paper/40">Contact</h2>
             <ul className="space-y-2.5 text-meta">
               <li>
-                <a href={`mailto:${site.emailSales}`} className="text-paper/70 transition-colors hover:text-azure">
+                <a href={`mailto:${site.emailSales}`} className="text-paper/70 transition-colors hover:text-azure-text">
                   {site.emailSales}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${site.emailSupport}`} className="text-paper/70 transition-colors hover:text-azure">
+                <a href={`mailto:${site.emailSupport}`} className="text-paper/70 transition-colors hover:text-azure-text">
                   {site.emailSupport}
                 </a>
               </li>
@@ -91,13 +91,13 @@ export default function Footer() {
                   href={site.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-paper/70 transition-colors hover:text-azure"
+                  className="text-paper/70 transition-colors hover:text-azure-text"
                 >
                   WhatsApp {site.whatsapp}
                 </a>
               </li>
             </ul>
-            <p className="mt-4 text-label font-mono uppercase tracking-[0.14em] text-azure/80">
+            <p className="mt-4 text-label font-mono uppercase tracking-[0.14em] text-azure-text/80">
               {site.responseCommitment}
             </p>
             <div className="mt-8 flex gap-5">
@@ -105,7 +105,7 @@ export default function Footer() {
                 href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-paper/50 transition-colors hover:text-azure"
+                className="text-paper/50 transition-colors hover:text-azure-text"
                 aria-label="Acmevia on LinkedIn"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="size-5" aria-hidden="true">
@@ -116,7 +116,7 @@ export default function Footer() {
                 href={site.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-paper/50 transition-colors hover:text-azure"
+                className="text-paper/50 transition-colors hover:text-azure-text"
                 aria-label="Acmevia on Facebook"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="size-5" aria-hidden="true">
@@ -127,7 +127,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-paper/10 pt-6 md:flex-row md:items-center md:justify-between">
           <p className="text-label font-mono uppercase tracking-[0.14em] text-paper/40">
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>

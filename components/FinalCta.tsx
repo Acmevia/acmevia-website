@@ -27,7 +27,7 @@ export default function FinalCta({
             {title}
           </h2>
         </Reveal>
-        <Reveal delay={0.15} className="mt-10 flex flex-wrap items-center gap-4">
+        <Reveal delay={0.15} className="gap-fallback mt-10 flex flex-wrap items-center gap-4">
           <Magnetic>
             <Link href="/contact/#book" className="btn btn-primary">
               Book a Free Demo

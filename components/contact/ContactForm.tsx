@@ -90,7 +90,7 @@ export default function ContactForm() {
             href={site.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-azure underline underline-offset-4"
+            className="text-azure-text underline underline-offset-4"
           >
             message us on WhatsApp
           </a>{" "}
@@ -101,7 +101,7 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "w-full border border-white/15 bg-surface px-4 py-3.5 text-body text-paper placeholder:text-paper/30 transition-colors duration-300 focus:border-azure focus:outline-none";
+    "w-full border border-paper/15 bg-surface px-4 py-3.5 text-body text-paper placeholder:text-paper/30 transition-colors duration-300 focus:border-azure focus:outline-none";
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-5">
@@ -126,7 +126,7 @@ export default function ContactForm() {
             aria-describedby={errors.name ? "name-error" : undefined}
           />
           {errors.name && (
-            <p id="name-error" className="mt-2 text-meta text-azure">
+            <p id="name-error" className="mt-2 text-meta text-azure-text">
               {errors.name}
             </p>
           )}
@@ -153,7 +153,7 @@ export default function ContactForm() {
           aria-describedby={errors.email ? "email-error" : undefined}
         />
         {errors.email && (
-          <p id="email-error" className="mt-2 text-meta text-azure">
+          <p id="email-error" className="mt-2 text-meta text-azure-text">
             {errors.email}
           </p>
         )}
@@ -192,7 +192,7 @@ export default function ContactForm() {
           aria-describedby={errors.message ? "message-error" : undefined}
         />
         {errors.message && (
-          <p id="message-error" className="mt-2 text-meta text-azure">
+          <p id="message-error" className="mt-2 text-meta text-azure-text">
             {errors.message}
           </p>
         )}
@@ -201,7 +201,7 @@ export default function ContactForm() {
       {status === "error" && (
         <p role="alert" className="border border-azure/40 bg-surface p-4 text-meta text-paper">
           That didn't send. Try again, or email us directly at{" "}
-          <a href={`mailto:${site.emailSales}`} className="text-azure underline underline-offset-4">
+          <a href={`mailto:${site.emailSales}`} className="text-azure-text underline underline-offset-4">
             {site.emailSales}
           </a>
           .

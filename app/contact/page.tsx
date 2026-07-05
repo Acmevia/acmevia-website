@@ -35,7 +35,7 @@ export default function ContactPage() {
                 <p className="eyebrow text-paper/40">Sales</p>
                 <a
                   href={`mailto:${site.emailSales}`}
-                  className="mt-1 inline-block text-lead text-paper transition-colors hover:text-azure"
+                  className="mt-1 inline-block text-lead text-paper transition-colors hover:text-azure-text"
                 >
                   {site.emailSales}
                 </a>
@@ -44,7 +44,7 @@ export default function ContactPage() {
                 <p className="eyebrow text-paper/40">Support</p>
                 <a
                   href={`mailto:${site.emailSupport}`}
-                  className="mt-1 inline-block text-lead text-paper transition-colors hover:text-azure"
+                  className="mt-1 inline-block text-lead text-paper transition-colors hover:text-azure-text"
                 >
                   {site.emailSupport}
                 </a>
@@ -55,7 +55,7 @@ export default function ContactPage() {
                   href={site.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 inline-block text-lead text-paper transition-colors hover:text-azure"
+                  className="mt-1 inline-block text-lead text-paper transition-colors hover:text-azure-text"
                 >
                   {site.whatsapp}
                 </a>
@@ -74,7 +74,7 @@ export default function ContactPage() {
       </section>
 
       {/* Demo booking */}
-      <section id="book" className="border-t border-white/10 bg-ink pb-section pt-20">
+      <section id="book" className="border-t border-paper/10 bg-ink pb-section pt-20">
         <div className="container-page">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Free demo</p>

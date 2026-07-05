@@ -22,6 +22,8 @@ export default function OutcomeBand() {
               <Reveal as="li" key={i} delay={i * 0.08} className="border-t border-ink/10 py-7">
                 <p className="text-lead text-ink/45">{o.problem}</p>
                 <p className="mt-2.5 flex gap-3 text-lead font-medium text-ink">
+                  {/* true azure: on the band it sits on white (dark mode, the
+                      original design) or black (light mode) — both intended */}
                   <span aria-hidden="true" className="font-mono text-azure">
                     →
                   </span>

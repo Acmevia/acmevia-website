@@ -32,7 +32,7 @@ const productSchema = products.map((p) => ({
 export default function ProductsPage() {
   return (
     <>
-      <section className="border-b border-white/10 pb-16 pt-40">
+      <section className="border-b border-paper/10 pb-16 pt-40">
         <div className="container-page">
           <Reveal>
             <p className="eyebrow">Products</p>
@@ -69,7 +69,7 @@ export default function ProductsPage() {
                 <h2 className="mt-4 font-display text-display font-semibold text-paper">
                   {p.name}
                 </h2>
-                <p className="mt-3 font-display text-lead text-azure">
+                <p className="mt-3 font-display text-lead text-azure-text">
                   {p.tagline}
                 </p>
                 <p className="mt-5 max-w-xl text-body text-paper/70">
@@ -82,15 +82,15 @@ export default function ProductsPage() {
             </div>
 
             {/* Feature rows */}
-            <div className="mt-16 border-t border-white/10">
+            <div className="mt-16 border-t border-paper/10">
               {p.features.map((f, fi) => (
                 <Reveal
                   key={f.title}
                   delay={Math.min(fi * 0.05, 0.25)}
-                  className="grid gap-2 border-b border-white/10 py-6 md:grid-cols-[1fr_1.6fr] md:gap-10"
+                  className="grid gap-2 border-b border-paper/10 py-6 md:grid-cols-[1fr_1.6fr] md:gap-10"
                 >
                   <h3 className="flex gap-3 font-display text-lead font-medium text-paper">
-                    <span aria-hidden="true" className="font-mono text-azure">/</span>
+                    <span aria-hidden="true" className="font-mono text-azure-text">/</span>
                     {f.title}
                   </h3>
                   <p className="text-body text-paper/60 md:pt-0.5">{f.detail}</p>

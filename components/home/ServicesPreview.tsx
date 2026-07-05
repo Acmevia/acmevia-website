@@ -26,20 +26,20 @@ export default function ServicesPreview() {
 
         <div className="mt-14 grid gap-12 lg:grid-cols-[1.6fr_1fr]">
           {/* Row list */}
-          <ul className="border-t border-white/10">
+          <ul className="border-t border-paper/10">
             {services.map((s, i) => (
               <Reveal as="li" key={s.id} delay={Math.min(i * 0.05, 0.3)}>
                 <Link
                   href={`/services/#${s.id}`}
                   onMouseEnter={() => setActive(i)}
                   onFocus={() => setActive(i)}
-                  className="slash-host group flex items-baseline gap-5 border-b border-white/10 py-5 pr-2 transition-colors duration-300 hover:border-azure/40 md:py-6"
+                  className="slash-host group flex items-baseline gap-5 border-b border-paper/10 py-5 pr-2 transition-colors duration-300 hover:border-azure/40 md:py-6"
                 >
-                  <span className="font-mono text-label text-azure/70">
+                  <span className="font-mono text-label text-azure-text/70">
                     {s.index}
                   </span>
                   <span className="flex-1">
-                    <span className="block font-display text-title font-medium text-paper transition-colors duration-300 group-hover:text-azure">
+                    <span className="block font-display text-title font-medium text-paper transition-colors duration-300 group-hover:text-azure-text">
                       {s.name}
                     </span>
                     <span className="mt-1 hidden text-meta text-paper/50 sm:block">
@@ -48,7 +48,7 @@ export default function ServicesPreview() {
                   </span>
                   <span
                     aria-hidden="true"
-                    className="font-mono text-paper/30 transition-all duration-500 ease-out-expo group-hover:translate-x-1.5 group-hover:text-azure"
+                    className="font-mono text-paper/30 transition-all duration-500 ease-out-expo group-hover:translate-x-1.5 group-hover:text-azure-text"
                   >
                     →
                   </span>
@@ -59,11 +59,11 @@ export default function ServicesPreview() {
 
           {/* Preview panel — desktop only */}
           <Reveal className="hidden lg:block" delay={0.15}>
-            <div className="sticky top-32 border border-white/10 bg-surface p-10">
+            <div className="sticky top-32 border border-paper/10 bg-surface p-10">
               <ServiceGlyph
                 key={services[active].id}
                 glyph={services[active].glyph}
-                className="h-40 w-40 text-azure transition-opacity duration-500"
+                className="h-40 w-40 text-azure-text transition-opacity duration-500"
               />
               <p className="eyebrow mt-8 text-paper/40">
                 {services[active].index} / 08

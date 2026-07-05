@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "name": "Operations Director",
+      "role": "Operations Director",
+      "company": "Manufacturing group, Sri Lanka",
+      "avatar": "",
+      "avatarAlt": "",
+      "rating": 5,
+      "quote": "They asked better questions about our business than most people who work in it. The system fits us — we didn't have to fit the system.",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/acmevia",
+      "featured": false
+    },
+    {
+      "name": "Managing Partner",
+      "role": "Managing Partner",
+      "company": "Education provider, UAE",
+      "avatar": "",
+      "avatarAlt": "",
+      "rating": 5,
+      "quote": "Delivered on the date they named at the start. In this industry that alone would be remarkable. It also just works.",
+      "platform": "google",
+      "url": "",
+      "featured": false
+    },
+    {
+      "name": "General Manager",
+      "role": "General Manager",
+      "company": "FMCG distributor, Sri Lanka",
+      "avatar": "",
+      "avatarAlt": "",
+      "rating": 5,
+      "quote": "We used to find out what happened in the field a month later. Now I open the dashboard and it's already there. That changed how we run the company.",
+      "platform": "facebook",
+      "url": "https://www.facebook.com/profile.php?id=61590874711928",
+      "featured": true
+    },
+    {
+      "name": "Founder",
+      "role": "Founder",
+      "company": "Specialty retailer, Australia",
+      "avatar": "",
+      "avatarAlt": "",
+      "rating": 5,
+      "quote": "The old store lost people at checkout and we never knew why. They rebuilt it, showed us the numbers, and the numbers went up. Plain as that.",
+      "platform": "google",
+      "url": "",
+      "featured": true
+    },
+    {
+      "name": "Estates Manager",
+      "role": "Estates Manager",
+      "company": "University campus, Europe",
+      "avatar": "",
+      "avatarAlt": "",
+      "rating": 5,
+      "quote": "Ninety rooms, one calendar, zero double bookings since launch. The monthly reports used to take me two days — now they run themselves.",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/acmevia",
+      "featured": true
+    }
+  ]
+}

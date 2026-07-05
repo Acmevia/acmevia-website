@@ -5,6 +5,7 @@ import ServicesPreview from "@/components/home/ServicesPreview";
 import ProductsPreview from "@/components/home/ProductsPreview";
 import ProcessSection from "@/components/home/ProcessSection";
 import OutcomeBand from "@/components/home/OutcomeBand";
+import ReviewsSection from "@/components/home/ReviewsSection";
 import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function HomePage() {
       <ProductsPreview />
       <ProcessSection />
       <OutcomeBand />
+      <ReviewsSection />
       <FinalCta />
     </>
   );

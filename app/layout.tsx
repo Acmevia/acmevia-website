@@ -60,18 +60,28 @@ const organizationSchema = {
   sameAs: [site.linkedin, site.facebook],
 };
 
+/**
+ * Runs before first paint: marks JS as available (scroll-reveal hidden
+ * states are scoped to html.js so content is never invisible without it)
+ * and resolves the theme — stored choice first, then OS preference,
+ * defaulting to dark. Kept inline so there is no flash of wrong theme.
+ */
+const themeInit = `(function(){try{var d=document.documentElement;d.classList.add("js");var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}d.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",t==="light"?"#ffffff":"#000000")}catch(e){document.documentElement.setAttribute("data-theme","dark")}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
+      data-theme="dark"
       className={`${clashDisplay.variable} ${switzer.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:bg-azure focus:px-4 focus:py-2 focus:font-mono focus:text-label focus:uppercase focus:text-ink"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:bg-azure focus:px-4 focus:py-2 focus:font-mono focus:text-label focus:uppercase focus:text-azure-ink"
         >
           Skip to content
         </a>

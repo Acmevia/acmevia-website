@@ -7,7 +7,7 @@ export default function TrustStrip() {
   return (
     <section
       aria-label="Track record"
-      className="border-y border-white/10 bg-surface"
+      className="border-y border-paper/10 bg-surface"
     >
       <div className="container-page py-14">
         <Reveal>

@@ -17,6 +17,16 @@
   --color-ink: #000000;
   --color-paper: #ffffff;
 
+  /* Azure as TEXT — identical to azure in dark mode, darkened in light
+     mode (see the [data-theme="light"] override below) so small azure
+     text passes AA on white. Use text-azure-text for any azure copy;
+     keep bg-azure / border-azure / decorative lines on true azure. */
+  --color-azure-text: #00b2ff;
+
+  /* Label color on azure fills — black in BOTH themes (azure+black
+     is 8.7:1; azure+white is 2.4:1 and always fails). */
+  --color-azure-ink: #000000;
+
   /* Derived surfaces (tints of ink) */
   --color-surface: #0a0a0a; /* elevated card on black   */
   --color-surface-2: #101010; /* second elevation step    */
@@ -71,4 +81,49 @@
   --font-display: var(--font-clash), "Avenir Next", "Segoe UI", sans-serif;
   --font-sans: var(--font-switzer), "Inter", system-ui, sans-serif;
   --font-mono: var(--font-jbmono), ui-monospace, "Cascadia Mono", monospace;
+}
+
+/* ============================================================
+   THEME RUNTIME — dark (default) ↔ light
+   Dark mode is the original design, untouched: the values above
+   apply verbatim. Light mode swaps token VALUES only; every
+   utility class and component reads through var(), so nothing
+   downstream knows themes exist. data-theme is set on <html>
+   by the inline script in app/layout.tsx before first paint.
+   ============================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* Semantic aliases — use these in hand-written CSS instead of
+     raw color tokens. (Fallback line first for pre-color-mix engines.) */
+  --bg: var(--color-ink);
+  --surface: var(--color-surface);
+  --text: var(--color-paper);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-muted: color-mix(in srgb, var(--color-paper) 60%, transparent);
+  --accent: var(--color-azure);
+  --accent-text: var(--color-azure-text);
+  --border: rgba(255, 255, 255, 0.1);
+  --border: color-mix(in srgb, var(--color-paper) 10%, transparent);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* The inversion: page black→white, former white sections→black.
+     Everything referencing ink/paper flips automatically. */
+  --color-ink: #ffffff;
+  --color-paper: #000000;
+  --color-surface: #f4f6f8; /* elevated card on white  */
+  --color-surface-2: #e9eef1; /* second elevation step   */
+
+  /* Azure fails contrast as text on white (2.4:1) — darken to a
+     deep azure that holds 4.9:1 for small text. Fills stay #00b2ff. */
+  --color-azure-text: #006c99;
+
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --text-muted: color-mix(in srgb, var(--color-paper) 60%, transparent);
+  --border: rgba(0, 0, 0, 0.1);
+  --border: color-mix(in srgb, var(--color-paper) 10%, transparent);
 }

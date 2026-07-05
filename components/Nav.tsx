@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LogoLockup } from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "/services/", label: "Services" },
@@ -38,10 +39,11 @@ export default function Nav() {
     pathname === href || pathname === href.replace(/\/$/, "");
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
         scrolled || open
-          ? "border-b border-white/10 bg-ink/70 backdrop-blur-md"
+          ? "nav-glass"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -81,39 +83,48 @@ export default function Nav() {
               </li>
             ))}
           </ul>
+          <ThemeToggle />
           <Link
             href="/contact/#book"
-            className="rounded-full bg-azure px-5 py-2.5 font-mono text-[0.75rem] font-medium uppercase tracking-[0.12em] text-ink transition-shadow duration-400 hover:shadow-[0_0_32px_rgba(0,178,255,0.45)]"
+            className="rounded-full bg-azure px-5 py-2.5 font-mono text-[0.75rem] font-medium uppercase tracking-[0.12em] text-azure-ink transition-shadow duration-400 hover:shadow-[0_0_32px_rgba(0,178,255,0.45)]"
           >
             Book a Free Demo
           </Link>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="relative z-50 flex h-11 w-11 items-center justify-center lg:hidden"
-        >
-          <span className="relative block h-3.5 w-6">
-            <span
-              className={`absolute left-0 top-0 h-px w-full bg-paper transition-transform duration-400 ease-out-expo ${
-                open ? "translate-y-[7px] -rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`absolute bottom-0 left-0 h-px w-full bg-paper transition-transform duration-400 ease-out-expo ${
-                open ? "-translate-y-[6px] rotate-45" : ""
-              }`}
-            />
-          </span>
-        </button>
+        {/* Mobile: theme switch + menu toggle */}
+        <div className="relative z-50 flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="flex h-11 w-11 items-center justify-center"
+          >
+            <span className="relative block h-3.5 w-6">
+              <span
+                className={`absolute left-0 top-0 h-px w-full bg-paper transition-transform duration-400 ease-out-expo ${
+                  open ? "translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-px w-full bg-paper transition-transform duration-400 ease-out-expo ${
+                  open ? "-translate-y-[6px] rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
       </nav>
+    </header>
 
-      {/* Full-screen overlay menu (mobile) */}
+      {/* Full-screen overlay menu (mobile) — a SIBLING of the header, not a
+          child: the glass header's backdrop-filter makes it the containing
+          block for fixed descendants, which would collapse this overlay to
+          the 4.5rem bar and let hero text bleed through the menu. Solid,
+          fully opaque bg-ink so nothing ever shows through. */}
       <div
         id="mobile-menu"
         aria-hidden={!open}
@@ -134,8 +145,8 @@ export default function Nav() {
               >
                 <Link
                   href={l.href}
-                  className={`font-display text-[2.25rem] font-medium leading-tight tracking-tight ${
-                    isActive(l.href) ? "text-azure" : "text-paper"
+                  className={`inline-block py-1 font-display text-[2.25rem] font-medium leading-tight tracking-tight ${
+                    isActive(l.href) ? "text-azure-text" : "text-paper"
                   }`}
                 >
                   {l.label}
@@ -155,6 +166,6 @@ export default function Nav() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

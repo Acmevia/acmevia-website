@@ -18,7 +18,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page opener */}
-      <section className="border-b border-white/10 pb-16 pt-40">
+      <section className="border-b border-paper/10 pb-16 pt-40">
         <div className="container-page">
           <Reveal>
             <p className="eyebrow">Services</p>
@@ -49,12 +49,12 @@ export default function ServicesPage() {
             <article
               key={s.id}
               id={s.id}
-              className={`py-16 ${i > 0 ? "border-t border-white/10" : "pt-0"}`}
+              className={`py-16 ${i > 0 ? "border-t border-paper/10" : "pt-0"}`}
             >
               <Reveal>
                 <div className="flex items-start justify-between gap-8">
                   <div>
-                    <p className="font-mono text-label text-azure">
+                    <p className="font-mono text-label text-azure-text">
                       {s.index} / 08
                     </p>
                     <h2 className="mt-3 font-display text-heading font-semibold text-paper">
@@ -63,10 +63,22 @@ export default function ServicesPage() {
                   </div>
                   <ServiceGlyph
                     glyph={s.glyph}
-                    className="hidden h-20 w-20 shrink-0 text-azure/70 sm:block"
+                    className="hidden h-20 w-20 shrink-0 text-azure-text/70 sm:block"
                   />
                 </div>
               </Reveal>
+
+              {s.image && (
+                <Reveal delay={0.05} className="mt-8">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- static export: no optimizer */}
+                  <img
+                    src={s.image.src}
+                    alt={s.image.alt}
+                    loading="lazy"
+                    className="aspect-[2/1] w-full border border-paper/10 object-cover"
+                  />
+                </Reveal>
+              )}
 
               <div className="mt-10 grid gap-10 md:grid-cols-2">
                 <Reveal delay={0.05}>
@@ -78,7 +90,7 @@ export default function ServicesPage() {
                   <ul className="mt-4 space-y-2.5">
                     {s.delivered.map((d) => (
                       <li key={d} className="flex gap-3 text-body text-paper/70">
-                        <span aria-hidden="true" className="mt-px font-mono text-azure">
+                        <span aria-hidden="true" className="mt-px font-mono text-azure-text">
                           /
                         </span>
                         {d}
@@ -104,7 +116,7 @@ export default function ServicesPage() {
           ))}
 
           {/* Ongoing engagement */}
-          <Reveal className="border-t border-white/10 py-16">
+          <Reveal className="border-t border-paper/10 py-16">
             <p className="eyebrow">After launch</p>
             <h2 className="mt-3 font-display text-heading font-semibold text-paper">
               Then we stick around.
