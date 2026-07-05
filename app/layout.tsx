@@ -75,6 +75,9 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="dark"
+      // The boot script sets the .js class + data-theme on <html> before
+      // hydration; suppress the expected attribute diff on this element only.
+      suppressHydrationWarning
       className={`${clashDisplay.variable} ${switzer.variable} ${jetbrainsMono.variable}`}
     >
       <body>

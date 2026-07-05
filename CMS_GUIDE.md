@@ -25,8 +25,16 @@ npm run dev    # the site on http://localhost:3000
 npm run cms    # the local CMS backend (decap-server)
 ```
 
-Open **http://localhost:3000/admin/** — no login needed locally.
-Edits write straight to `content/*.json`; commit and push them like code.
+Open **http://localhost:3000/admin/index.html** — no login needed
+locally. Edits write straight to `content/*.json`; commit and push them
+like code.
+
+> **Use the full `/admin/index.html` path in local dev.** The Next dev
+> server doesn't auto-resolve a bare `/admin/` folder URL to its
+> `index.html`, so `http://localhost:3000/admin/` returns a 404 there.
+> On the **deployed** site (and any static host serving the exported
+> `out/` folder), the clean `https://acmevia.com/admin/` works — static
+> hosts resolve the directory index automatically.
 
 ## One-time production setup (needs doing before staff can log in)
 
