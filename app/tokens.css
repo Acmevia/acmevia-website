@@ -1,0 +1,74 @@
+/* ============================================================
+   ACMEVIA DESIGN TOKENS
+   Single source of truth for color, type scale, spacing, easing.
+   Consumed by Tailwind v4 (@theme) — every token below becomes
+   a utility class (e.g. --color-azure -> bg-azure / text-azure,
+   --text-hero -> text-hero, --ease-out-expo -> ease-out-expo).
+   ============================================================ */
+
+@theme {
+  /* ---- Color — three hues only. Everything else is a tint. ----
+     Contrast notes (WCAG 2.1):
+     - azure on ink  : 8.7:1  ✓ text at any size
+     - ink on azure  : 8.7:1  ✓ button labels
+     - azure on paper: 2.4:1  ✗ never use azure for text on white;
+                       decorative lines / large display only.       */
+  --color-azure: #00b2ff;
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+
+  /* Derived surfaces (tints of ink) */
+  --color-surface: #0a0a0a; /* elevated card on black   */
+  --color-surface-2: #101010; /* second elevation step    */
+
+  /* ---- Type scale — 12 / 14 / 16 / 20 / 28 / 40 / 64 / 96 ----
+     The three largest steps are fluid; they resolve to the scale
+     values at the 1440px design size.                              */
+  --text-label: 0.75rem; /* 12 — mono eyebrows, metadata  */
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.16em;
+
+  --text-meta: 0.875rem; /* 14 — secondary copy, captions */
+  --text-meta--line-height: 1.6;
+
+  --text-body: 1rem; /* 16 — body                     */
+  --text-body--line-height: 1.7;
+
+  --text-lead: 1.25rem; /* 20 — standfirst paragraphs    */
+  --text-lead--line-height: 1.6;
+
+  --text-title: 1.75rem; /* 28 — card / block titles      */
+  --text-title--line-height: 1.25;
+  --text-title--letter-spacing: -0.01em;
+
+  --text-heading: clamp(1.875rem, 1.1rem + 2.2vw, 2.5rem); /* 40 */
+  --text-heading--line-height: 1.12;
+  --text-heading--letter-spacing: -0.02em;
+
+  --text-display: clamp(2.375rem, 1.2rem + 4.4vw, 4rem); /* 64 */
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.025em;
+
+  --text-hero: clamp(2.625rem, 1rem + 6.6vw, 6rem); /* 96 */
+  --text-hero--line-height: 1.02;
+  --text-hero--letter-spacing: -0.03em;
+
+  /* ---- Motion — one curve rules the site ---- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Rhythm ---- */
+  --spacing-section: clamp(6rem, 4rem + 8vw, 10rem); /* vertical section gap */
+  --spacing-gutter: clamp(1.25rem, 0.6rem + 3vw, 2.5rem); /* page side padding */
+  --spacing-nav: 4.5rem; /* fixed nav height */
+
+  /* ---- Container ---- */
+  --container-page: 80rem; /* 1280 content column */
+}
+
+/* Font tokens reference the next/font CSS variables injected on <html>,
+   so they must be resolved at use-time (inline), not build-time. */
+@theme inline {
+  --font-display: var(--font-clash), "Avenir Next", "Segoe UI", sans-serif;
+  --font-sans: var(--font-switzer), "Inter", system-ui, sans-serif;
+  --font-mono: var(--font-jbmono), ui-monospace, "Cascadia Mono", monospace;
+}
