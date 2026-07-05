@@ -72,6 +72,53 @@ collections:
                   - { label: "Image", name: "src", widget: "image", required: false, allow_multiple: false }
                   - { label: "Alt text", name: "alt", widget: "string", required: false, hint: "Describe the image for screen readers." }
 
+      - name: "products"
+        label: "Products"
+        file: "content/products.json"
+        description: "The flagship SaaS products. Drag entries to reorder — the order here is the order on the /products/ page."
+        fields:
+          - label: "Products"
+            name: "items"
+            widget: "list"
+            label_singular: "product"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "ID (URL slug)", name: "id", widget: "string", hint: "Lowercase with hyphens, e.g. lms. Changing it changes the section link." }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Audience", name: "audience", widget: "string", hint: "Who it's for, separated by · — e.g. Schools · Universities · Training centers. Shown as the eyebrow line." }
+              - { label: "Tagline", name: "tagline", widget: "string", hint: "One line, e.g. Every room, every hour, one calendar." }
+              - { label: "The client problem (optional)", name: "problem", widget: "text", required: false, hint: "Shown above the description when filled in." }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Key features"
+                name: "features"
+                widget: "list"
+                label_singular: "feature"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Detail", name: "detail", widget: "string", hint: "One sentence." }
+              - { label: "Key claim", name: "keyClaim", widget: "string", hint: "The one-line proof statement, e.g. Cuts administrative work by up to 80%." }
+              - { label: "Pricing note", name: "pricingNote", widget: "string", hint: "E.g. Plans from a simple monthly fee — or request a custom quote." }
+              - { label: "White-label / enterprise licensing", name: "whiteLabel", widget: "boolean", default: true, hint: "Shows the 'White-label & enterprise licensing available' line under the pricing note." }
+              - { label: "Featured on landing page", name: "featured", widget: "boolean", default: true }
+              - label: "Built-in mockup style"
+                name: "mock"
+                widget: "select"
+                options:
+                  - { label: "LMS dashboard", value: "lms" }
+                  - { label: "Booking calendar", value: "hall" }
+                  - { label: "Distribution dashboard", value: "dms" }
+                hint: "The CSS-drawn dashboard sketch — used only while no image is uploaded below."
+              - label: "Images / mockups (optional)"
+                name: "images"
+                widget: "list"
+                required: false
+                label_singular: "image"
+                summary: "{{fields.alt}}"
+                fields:
+                  - { label: "Image", name: "src", widget: "image", allow_multiple: false }
+                  - { label: "Alt text", name: "alt", widget: "string", hint: "Describe the screenshot for screen readers." }
+
       - name: "projects"
         label: "Projects"
         file: "content/projects.json"

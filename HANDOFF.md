@@ -2,8 +2,8 @@
 
 How to replace every placeholder with real data, and where the seams are.
 
-> **CMS note:** services, projects, reviews/testimonials, and the logo
-> are now edited in the browser at **`/admin/`** — see
+> **CMS note:** services, products, projects, reviews/testimonials, and
+> the logo are now edited in the browser at **`/admin/`** — see
 > [`CMS_GUIDE.md`](CMS_GUIDE.md). They live in `content/*.json`, not in
 > `lib/data.ts`. Everything else below still lives in
 > [`lib/data.ts`](lib/data.ts).

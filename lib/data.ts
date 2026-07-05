@@ -1,12 +1,13 @@
 /**
- * Site content hub. Services, projects, reviews, and the logo are
- * CMS-managed: they live in /content/*.json (edited at /admin/ — see
+ * Site content hub. Services, products, projects, reviews, and the logo
+ * are CMS-managed: they live in /content/*.json (edited at /admin/ — see
  * CMS_GUIDE.md) and are re-exported from here so every component keeps
- * one import path. Everything else (products, process, stats, copy)
+ * one import path. Everything else (process, stats, outcomes, copy)
  * stays in this file — see HANDOFF.md.
  */
 
 import servicesJson from "@/content/services.json";
+import productsJson from "@/content/products.json";
 import projectsJson from "@/content/projects.json";
 import reviewsJson from "@/content/reviews.json";
 import settingsJson from "@/content/settings.json";
@@ -57,110 +58,27 @@ export type Product = {
   name: string;
   audience: string;
   tagline: string;
+  /** optional client-problem paragraph; renders above the description */
+  problem?: string;
   description: string;
   features: { title: string; detail: string }[];
   keyClaim: string;
   pricingNote: string;
+  /** shows the "White-label & enterprise licensing" line */
+  whiteLabel?: boolean;
+  /** featured → card on the home-page products preview */
+  featured?: boolean;
+  /** CSS-built dashboard mockup — used when no image is uploaded */
   mock: "lms" | "hall" | "dms";
+  /** optional CMS-uploaded mockups; the first replaces the CSS mock */
+  images?: { src: string; alt: string }[];
 };
 
-export const products: Product[] = [
-  {
-    id: "lms",
-    name: "Acmevia LMS",
-    audience: "Schools · Universities · Tuition classes · Training centers",
-    tagline: "Run your entire institute from one screen.",
-    description:
-      "A cloud-based learning management system for institutions that are done with paper registers and WhatsApp groups. Fully white-label — your name, your logo, your domain.",
-    features: [
-      {
-        title: "Student & course management",
-        detail: "Enrolment, batches, attendance, and fee tracking in one place.",
-      },
-      {
-        title: "Online exams with automated grading",
-        detail: "Set papers once. Marking, grading, and result sheets happen on their own.",
-      },
-      {
-        title: "Secure portals for every role",
-        detail: "Students, teachers, parents, and admins each see exactly what they need.",
-      },
-      {
-        title: "Works on any device",
-        detail: "Fully responsive — most students will use it on a phone, so it's built for one.",
-      },
-      {
-        title: "White-label & customizable",
-        detail: "Your brand on the door. Modules shaped to how your institute runs.",
-      },
-    ],
-    keyClaim: "Cuts administrative work by up to 80%.",
-    pricingNote: "Plans from a simple monthly fee per institute — or request a custom quote.",
-    mock: "lms",
-  },
-  {
-    id: "hall-booking",
-    name: "Hall Booking & Space Management",
-    audience: "Corporations · Universities · Hotels · Public institutions",
-    tagline: "Every room, every hour, one calendar.",
-    description:
-      "A reservation system for organizations juggling multiple venues, halls, and meeting rooms. No more double bookings, phone-call chains, or paper diaries at the front desk.",
-    features: [
-      {
-        title: "Multi-venue calendar",
-        detail: "All spaces visible at once. Conflicts are impossible, not just unlikely.",
-      },
-      {
-        title: "Approval workflows",
-        detail: "Requests route to the right approver with one tap — with a full audit trail.",
-      },
-      {
-        title: "Resources & setup requirements",
-        detail: "Projectors, catering, seating layouts — attached to the booking, not to memory.",
-      },
-      {
-        title: "Billing & utilization reports",
-        detail: "See which spaces earn their keep and which sit empty.",
-      },
-    ],
-    keyClaim: "Double bookings drop to zero from day one.",
-    pricingNote: "Priced per venue portfolio — request a custom quote.",
-    mock: "hall",
-  },
-  {
-    id: "dms",
-    name: "Distribution Management System + Mobile POS",
-    audience: "FMCG distributors · Wholesalers · Field sales operations",
-    tagline: "Know where every unit, rupee, and rep is — right now.",
-    description:
-      "Real-time tracking of every unit, transaction, and agent in your distribution network. A mobile POS app for field agents, a live dashboard for management.",
-    features: [
-      {
-        title: "Field-agent mobile POS",
-        detail: "Orders, invoicing, and payments captured at the shopfront — even offline.",
-      },
-      {
-        title: "Live management dashboard",
-        detail: "Sales, stock, and agent activity by route, region, and SKU as it happens.",
-      },
-      {
-        title: "Inventory across the chain",
-        detail: "Warehouse to van to shelf. Stock variance stops being a mystery.",
-      },
-      {
-        title: "Route planning & agent tracking",
-        detail: "Who visited which outlet, when, and what was sold or returned.",
-      },
-      {
-        title: "Credit & collections control",
-        detail: "Outstanding balances per outlet, with limits enforced at the point of sale.",
-      },
-    ],
-    keyClaim: "End-of-day reporting becomes any-second reporting.",
-    pricingNote: "Licensed per agent and warehouse — request a custom quote.",
-    mock: "dms",
-  },
-];
+export const products: Product[] = productsJson.items.map((p) => ({
+  ...p,
+  problem: p.problem || undefined,
+  images: p.images && p.images.length ? p.images : undefined,
+})) as Product[];
 
 /* ------------------------------------------------------------------ */
 /* Process                                                             */

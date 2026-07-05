@@ -65,6 +65,22 @@ the client problem, what's delivered (list), business outcome, and an
 optional image. **Drag entries to reorder** — the order in the admin is
 the order on the site, and the big `01/08` numbers renumber themselves.
 
+### Add or edit a **product**
+Admin → *Site content* → **Products** → add/edit an entry.
+Fields mirror the /products/ page: name, audience line, tagline, an
+optional client-problem paragraph, description, key features
+(repeatable title + one-sentence detail), key claim, pricing note
+("Plans from…" / "Request a custom quote"), a **white-label /
+enterprise** switch (shows the licensing line), and a **featured**
+switch (puts the card on the home page). **Drag entries to reorder** —
+the order in the admin is the order on the page, sections alternate
+dark/elevated automatically.
+
+Mockups: each product ships with a built-in CSS-drawn dashboard sketch
+(pick which style under "Built-in mockup style"). Upload a real
+screenshot under "Images / mockups" and it replaces the sketch — real
+beats sketched. Size it ~1600px wide and fill in the alt text.
+
 ### Add or edit a **project**
 Admin → *Site content* → **Projects**. These feed the animated timeline
 on /projects/. Keep 5–8 entries, oldest first. The `metric` is the
@@ -109,6 +125,6 @@ Uploads land in `public/uploads/` and are served exactly as uploaded
 | Thing | File |
 |---|---|
 | Admin UI + collection schema | `public/admin/index.html`, `public/admin/config.yml` |
-| Content the CMS edits | `content/services.json`, `content/projects.json`, `content/reviews.json`, `content/settings.json` |
+| Content the CMS edits | `content/services.json`, `content/products.json`, `content/projects.json`, `content/reviews.json`, `content/settings.json` |
 | Types + re-exports the site reads | `lib/data.ts` |
 | Non-CMS content (products, process, stats, contact details) | `lib/data.ts` — see HANDOFF.md |

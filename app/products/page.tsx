@@ -61,7 +61,18 @@ export default function ProductsPage() {
               }`}
             >
               <Reveal delay={0.1}>
-                <ProductMock variant={p.mock} />
+                {p.images?.[0] ? (
+                  // CMS-uploaded mockup replaces the CSS-built dashboard
+                  // eslint-disable-next-line @next/next/no-img-element -- static export: no optimizer
+                  <img
+                    src={p.images[0].src}
+                    alt={p.images[0].alt}
+                    loading="lazy"
+                    className="w-full border border-paper/10 bg-surface"
+                  />
+                ) : (
+                  <ProductMock variant={p.mock} />
+                )}
               </Reveal>
 
               <Reveal>
@@ -72,6 +83,11 @@ export default function ProductsPage() {
                 <p className="mt-3 font-display text-lead text-azure-text">
                   {p.tagline}
                 </p>
+                {p.problem && (
+                  <p className="mt-5 max-w-xl text-body text-paper/50">
+                    {p.problem}
+                  </p>
+                )}
                 <p className="mt-5 max-w-xl text-body text-paper/70">
                   {p.description}
                 </p>
@@ -106,9 +122,11 @@ export default function ProductsPage() {
               </Magnetic>
               <div>
                 <p className="text-meta text-paper/70">{p.pricingNote}</p>
-                <p className="mt-1 font-mono text-label uppercase tracking-[0.14em] text-paper/40">
-                  White-label & enterprise licensing available
-                </p>
+                {p.whiteLabel && (
+                  <p className="mt-1 font-mono text-label uppercase tracking-[0.14em] text-paper/40">
+                    White-label & enterprise licensing available
+                  </p>
+                )}
               </div>
             </Reveal>
           </div>

@@ -63,6 +63,7 @@ function TiltCard({
 }
 
 export default function ProductsPreview() {
+  const featured = products.filter((p) => p.featured);
   return (
     <section className="py-section">
       <div className="container-page">
@@ -73,7 +74,7 @@ export default function ProductsPreview() {
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {products.map((p, i) => (
+          {featured.map((p, i) => (
             <TiltCard key={p.id} index={i} href={`/products/#${p.id}`}>
               <p className="eyebrow text-paper/40">0{i + 1}</p>
               <h3 className="mt-5 font-display text-title font-medium text-paper">

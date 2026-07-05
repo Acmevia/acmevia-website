@@ -1,0 +1,108 @@
+{
+  "items": [
+    {
+      "id": "lms",
+      "name": "Acmevia LMS",
+      "audience": "Schools · Universities · Tuition classes · Training centers",
+      "tagline": "Run your entire institute from one screen.",
+      "problem": "",
+      "description": "A cloud-based learning management system for institutions that are done with paper registers and WhatsApp groups. Fully white-label — your name, your logo, your domain.",
+      "features": [
+        {
+          "title": "Student & course management",
+          "detail": "Enrolment, batches, attendance, and fee tracking in one place."
+        },
+        {
+          "title": "Online exams with automated grading",
+          "detail": "Set papers once. Marking, grading, and result sheets happen on their own."
+        },
+        {
+          "title": "Secure portals for every role",
+          "detail": "Students, teachers, parents, and admins each see exactly what they need."
+        },
+        {
+          "title": "Works on any device",
+          "detail": "Fully responsive — most students will use it on a phone, so it's built for one."
+        },
+        {
+          "title": "White-label & customizable",
+          "detail": "Your brand on the door. Modules shaped to how your institute runs."
+        }
+      ],
+      "keyClaim": "Cuts administrative work by up to 80%.",
+      "pricingNote": "Plans from a simple monthly fee per institute — or request a custom quote.",
+      "whiteLabel": true,
+      "featured": true,
+      "mock": "lms",
+      "images": []
+    },
+    {
+      "id": "hall-booking",
+      "name": "Hall Booking & Space Management",
+      "audience": "Corporations · Universities · Hotels · Public institutions",
+      "tagline": "Every room, every hour, one calendar.",
+      "problem": "",
+      "description": "A reservation system for organizations juggling multiple venues, halls, and meeting rooms. No more double bookings, phone-call chains, or paper diaries at the front desk.",
+      "features": [
+        {
+          "title": "Multi-venue calendar",
+          "detail": "All spaces visible at once. Conflicts are impossible, not just unlikely."
+        },
+        {
+          "title": "Approval workflows",
+          "detail": "Requests route to the right approver with one tap — with a full audit trail."
+        },
+        {
+          "title": "Resources & setup requirements",
+          "detail": "Projectors, catering, seating layouts — attached to the booking, not to memory."
+        },
+        {
+          "title": "Billing & utilization reports",
+          "detail": "See which spaces earn their keep and which sit empty."
+        }
+      ],
+      "keyClaim": "Double bookings drop to zero from day one.",
+      "pricingNote": "Priced per venue portfolio — request a custom quote.",
+      "whiteLabel": true,
+      "featured": true,
+      "mock": "hall",
+      "images": []
+    },
+    {
+      "id": "dms",
+      "name": "Distribution Management System + Mobile POS",
+      "audience": "FMCG distributors · Wholesalers · Field sales operations",
+      "tagline": "Know where every unit, rupee, and rep is — right now.",
+      "problem": "",
+      "description": "Real-time tracking of every unit, transaction, and agent in your distribution network. A mobile POS app for field agents, a live dashboard for management.",
+      "features": [
+        {
+          "title": "Field-agent mobile POS",
+          "detail": "Orders, invoicing, and payments captured at the shopfront — even offline."
+        },
+        {
+          "title": "Live management dashboard",
+          "detail": "Sales, stock, and agent activity by route, region, and SKU as it happens."
+        },
+        {
+          "title": "Inventory across the chain",
+          "detail": "Warehouse to van to shelf. Stock variance stops being a mystery."
+        },
+        {
+          "title": "Route planning & agent tracking",
+          "detail": "Who visited which outlet, when, and what was sold or returned."
+        },
+        {
+          "title": "Credit & collections control",
+          "detail": "Outstanding balances per outlet, with limits enforced at the point of sale."
+        }
+      ],
+      "keyClaim": "End-of-day reporting becomes any-second reporting.",
+      "pricingNote": "Licensed per agent and warehouse — request a custom quote.",
+      "whiteLabel": true,
+      "featured": true,
+      "mock": "dms",
+      "images": []
+    }
+  ]
+}
