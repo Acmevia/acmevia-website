@@ -1,0 +1,6 @@
+# Netlify build settings. The site is a Next.js static export
+# (output: "export" in next.config.mjs), so the build writes plain
+# HTML/CSS/JS to /out and no server functions are needed.
+[build]
+  command = "npm run build"
+  publish = "out"
