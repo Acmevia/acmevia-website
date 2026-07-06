@@ -6,9 +6,10 @@ backend:
   name: github
   repo: Acmevia/acmevia-website
   branch: main
-  # Auth gateway for the GitHub backend. Required in production —
-  # see CMS_GUIDE.md § "One-time setup". Local editing does not need it.
-  base_url: https://YOUR-OAUTH-GATEWAY.example.com
+  # No base_url needed: the site is hosted on Netlify, whose built-in OAuth
+  # gateway (api.netlify.com) is Decap's default. The GitHub OAuth App's
+  # Client ID/Secret are installed under Netlify → Access & security → OAuth.
+  # See CMS_GUIDE.md § "One-time setup". Local editing does not need any of this.
 
 # Local editing without any auth: run `npm run cms` alongside `npm run dev`
 # and open http://localhost:3000/admin/ (or the decap-server proxy page).
