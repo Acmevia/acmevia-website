@@ -14,7 +14,7 @@ import settingsJson from "@/content/settings.json";
 
 export const site = {
   name: "Acmevia",
-  legalName: "Acmevia Pvt Ltd",
+  legalName: "Acmevia",
   url: "https://acmevia.com",
   emailSupport: "support@acmevia.com",
   emailSales: "sales@acmevia.com",
