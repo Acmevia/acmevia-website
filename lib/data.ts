@@ -20,7 +20,7 @@ export const site = {
   emailSales: "sales@acmevia.com",
   whatsapp: "+94 76 159 2541",
   whatsappLink: "https://wa.me/94761592541",
-  linkedin: "https://www.linkedin.com/company/acmevia",
+  linkedin: "https://www.linkedin.com/company/acmevia-com/",
   facebook: "https://www.facebook.com/profile.php?id=61590874711928",
   regions: ["Asia-Pacific", "Europe", "North America", "Middle East", "Australia"],
   responseCommitment: "We reply within 24 hours.",
