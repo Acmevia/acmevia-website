@@ -542,6 +542,102 @@ body::after {
   }
 }
 
+/* ---- Blog article typography — token-driven, theme-proof --------
+   Applied to CMS Markdown output (.prose-av). Mirrors the site's
+   voice: display headings, azure accents, generous line height. */
+.prose-av {
+  color: color-mix(in srgb, var(--color-paper) 75%, transparent);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+}
+.prose-av h2 {
+  margin-top: 2.75em;
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  line-height: var(--text-title--line-height);
+  letter-spacing: var(--text-title--letter-spacing);
+  font-weight: 600;
+  color: var(--color-paper);
+}
+.prose-av h3 {
+  margin-top: 2.25em;
+  font-family: var(--font-display);
+  font-size: var(--text-lead);
+  font-weight: 500;
+  color: var(--color-paper);
+}
+.prose-av p {
+  margin-top: 1.25em;
+}
+.prose-av strong {
+  font-weight: 600;
+  color: var(--color-paper);
+}
+.prose-av a {
+  color: var(--color-azure-text);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-azure) 45%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.3s ease;
+}
+.prose-av a:hover {
+  text-decoration-color: var(--color-azure);
+}
+.prose-av ul,
+.prose-av ol {
+  margin-top: 1.25em;
+  padding-left: 1.5em;
+}
+.prose-av ul {
+  list-style: none;
+  padding-left: 0;
+}
+.prose-av ul > li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-top: 0.75em;
+}
+.prose-av ul > li::before {
+  content: "/";
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  color: var(--color-azure-text);
+}
+.prose-av ol > li {
+  margin-top: 0.75em;
+}
+.prose-av blockquote {
+  margin-top: 1.5em;
+  border-left: 2px solid var(--color-azure);
+  padding-left: 1.25em;
+  font-size: var(--text-lead);
+  line-height: var(--text-lead--line-height);
+  color: var(--color-paper);
+}
+.prose-av hr {
+  margin-top: 2.5em;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top-color: color-mix(in srgb, var(--color-paper) 10%, transparent);
+}
+.prose-av code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  color: var(--color-paper);
+  background: color-mix(in srgb, var(--color-paper) 8%, transparent);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+.prose-av img {
+  margin-top: 1.5em;
+  max-width: 100%;
+  border: 1px solid color-mix(in srgb, var(--color-paper) 10%, transparent);
+}
+.prose-av > :first-child {
+  margin-top: 0;
+}
+
 /* ---- Flex-gap fallback for engines without flexbox gap ---- */
 @supports not (gap: 1rem) {
   .gap-fallback > * + * {

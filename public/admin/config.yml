@@ -22,6 +22,36 @@ site_url: https://acmevia.com
 display_url: https://acmevia.com
 
 collections:
+  - name: "blog"
+    label: "Blog posts"
+    folder: "content/blog"
+    create: true
+    delete: true
+    format: "frontmatter"
+    extension: "md"
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date | date('yyyy-MM-dd')}}"
+    sortable_fields: ["date", "title"]
+    description: "Each post is a page at /blog/<slug>/. Posts marked Draft are hidden from the site."
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "Also the Google result headline — put the key phrase in it." }
+      - { label: "Description", name: "description", widget: "text", hint: "1–2 sentences, ~160 characters. Shown on the blog index and in Google results." }
+      - { label: "Publish date", name: "date", widget: "datetime", time_format: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Guides", "Insights", "News"]
+        default: "Guides"
+      - label: "Cover image (optional)"
+        name: "cover"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Image", name: "src", widget: "image", required: false, allow_multiple: false }
+          - { label: "Alt text", name: "alt", widget: "string", required: false }
+      - { label: "Draft (hide from site)", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Use ## headings for sections. Link to /services/, /products/, and /contact/#book where it helps the reader." }
+
   - name: "site"
     label: "Site settings"
     files:

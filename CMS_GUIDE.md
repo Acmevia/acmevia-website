@@ -65,6 +65,17 @@ the client problem, what's delivered (list), business outcome, and an
 optional image. **Drag entries to reorder** — the order in the admin is
 the order on the site, and the big `01/08` numbers renumber themselves.
 
+### Write a **blog post**
+Admin → **Blog posts** → *New blog post*. Title (put the search phrase
+in it), a ~160-character description (this is the Google snippet), a
+publish date, category, optional cover image, and the body in the rich
+Markdown editor — use `##` headings for sections and link to
+`/services/`, `/products/`, and `/contact/#book` where it genuinely
+helps the reader. Toggle **Draft** on to save without publishing. The
+post appears at `/blog/<slug>/`, in the blog index, and in
+`sitemap.xml` automatically. House style: plain language, problem →
+outcome, no "cutting-edge"/"revolutionize"/"unlock".
+
 ### Add or edit a **product**
 Admin → *Site content* → **Products** → add/edit an entry.
 Fields mirror the /products/ page: name, audience line, tagline, an
@@ -125,6 +136,7 @@ Uploads land in `public/uploads/` and are served exactly as uploaded
 | Thing | File |
 |---|---|
 | Admin UI + collection schema | `public/admin/index.html`, `public/admin/config.yml` |
-| Content the CMS edits | `content/services.json`, `content/products.json`, `content/projects.json`, `content/reviews.json`, `content/settings.json` |
+| Content the CMS edits | `content/services.json`, `content/products.json`, `content/projects.json`, `content/reviews.json`, `content/settings.json`, `content/blog/*.md` |
+| Blog rendering | `lib/blog.ts` (build-time Markdown → HTML), `app/blog/` |
 | Types + re-exports the site reads | `lib/data.ts` |
 | Non-CMS content (products, process, stats, contact details) | `lib/data.ts` — see HANDOFF.md |

@@ -61,6 +61,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog/" className="text-meta text-paper/70 transition-colors hover:text-azure-text">
+                  Blog
+                </Link>
+              </li>
+              <li>
                 <Link href="/about/" className="text-meta text-paper/70 transition-colors hover:text-azure-text">
                   About
                 </Link>
