@@ -1,8 +1,10 @@
 ---
-title: "How much does a custom ERP cost in Sri Lanka?"
-description: "An honest breakdown of what drives custom ERP pricing in Sri Lanka — scope, modules, migration, and the costs nobody quotes you upfront."
+title: How much does a custom ERP cost in Sri Lanka?
+description: An honest breakdown of what drives custom ERP pricing in Sri Lanka
+  — scope, modules, migration, and the costs nobody quotes you upfront.
 date: 2026-07-08
-category: "Guides"
+author: Sasantha Perera
+category: Guides
 draft: false
 ---
 
