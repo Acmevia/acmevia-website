@@ -101,6 +101,14 @@ export default function Footer() {
                   WhatsApp {site.whatsapp}
                 </a>
               </li>
+              <li>
+                <a
+                  href={`tel:${site.whatsapp.replace(/\s/g, "")}`}
+                  className="text-paper/70 transition-colors hover:text-azure-text"
+                >
+                  Call {site.whatsapp}
+                </a>
+              </li>
             </ul>
             <p className="mt-4 text-label font-mono uppercase tracking-[0.14em] text-azure-text/80">
               {site.responseCommitment}

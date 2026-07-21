@@ -61,6 +61,15 @@ export default function ContactPage() {
                   {site.whatsapp}
                 </a>
               </div>
+              <div>
+                <p className="eyebrow text-paper/40">Call</p>
+                <a
+                  href={`tel:${site.whatsapp.replace(/\s/g, "")}`}
+                  className="mt-1 inline-block text-lead text-paper transition-colors hover:text-azure-text"
+                >
+                  {site.whatsapp}
+                </a>
+              </div>
               <p className="border-l-2 border-azure pl-4 font-mono text-label uppercase tracking-[0.14em] text-paper/50">
                 {site.responseCommitment} Every channel, every timezone.
               </p>

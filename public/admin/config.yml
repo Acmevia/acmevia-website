@@ -189,7 +189,7 @@ collections:
       - name: "reviews"
         label: "Reviews"
         file: "content/reviews.json"
-        description: "Client reviews. 'Featured' ones appear on the home page reviews section; the first two NON-featured ones appear as pull quotes in the white outcomes band. All reviews show on the About page."
+        description: "PLACEHOLDER REVIEWS — replace with real Google/Clutch/LinkedIn reviews before relying on these. Do not present placeholder testimonials as real. 'Featured' ones appear on the home page reviews section; the first two NON-featured ones appear as pull quotes in the white outcomes band. All reviews show on the About page."
         fields:
           - label: "Reviews"
             name: "items"
