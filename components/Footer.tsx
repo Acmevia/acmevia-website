@@ -45,7 +45,7 @@ export default function Footer() {
               {products.map((p) => (
                 <li key={p.id}>
                   <Link
-                    href={`/products/#${p.id}`}
+                    href={`/products/${p.id}/`}
                     className="text-meta text-paper/70 transition-colors hover:text-azure-text"
                   >
                     {p.name}
@@ -105,6 +105,7 @@ export default function Footer() {
             <p className="mt-4 text-label font-mono uppercase tracking-[0.14em] text-azure-text/80">
               {site.responseCommitment}
             </p>
+            <p className="mt-2 text-meta text-paper/50">{site.address.display}</p>
             <div className="mt-8 flex gap-5">
               <a
                 href={site.linkedin}

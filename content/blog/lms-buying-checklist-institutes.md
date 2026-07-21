@@ -1,6 +1,7 @@
 ---
 title: "Choosing an LMS for your institute or tuition class: a buying checklist"
-description: "A practical checklist for schools, universities, and tuition classes in Sri Lanka evaluating learning management systems — what to demand, what to skip, and the questions that expose weak vendors."
+seoTitle: "LMS Buying Checklist for Sri Lankan Institutes"
+description: "A practical LMS buying checklist for institutes and tuition classes in Sri Lanka — what to demand, what to skip, and which questions expose weak vendors."
 date: 2026-06-24
 category: "Guides"
 draft: false

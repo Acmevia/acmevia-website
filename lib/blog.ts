@@ -13,6 +13,7 @@ import { marked } from "marked";
 export type BlogPost = {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   date: string; // ISO
   category: string;
@@ -32,6 +33,7 @@ function parsePost(filename: string): BlogPost | null {
   return {
     slug: filename.replace(/\.md$/, ""),
     title: String(data.title ?? ""),
+    seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
     description: String(data.description ?? ""),
     date: new Date(data.date ?? Date.now()).toISOString(),
     category: String(data.category ?? "Insights"),

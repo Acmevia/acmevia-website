@@ -14,14 +14,24 @@ import settingsJson from "@/content/settings.json";
 
 export const site = {
   name: "Acmevia",
-  legalName: "Acmevia",
+  legalName: "Acmevia (Pvt) Ltd",
   url: "https://acmevia.com",
   emailSupport: "support@acmevia.com",
   emailSales: "sales@acmevia.com",
   whatsapp: "+94 76 159 2541",
   whatsappLink: "https://wa.me/94761592541",
   linkedin: "https://www.linkedin.com/company/acmevia-com/",
-  facebook: "https://www.facebook.com/acmeviacom/",
+  facebook: "https://web.facebook.com/acmeviacom/",
+  instagram: "https://www.instagram.com/acmeviadev/",
+  clutch: "https://clutch.co/profile/acmevia",
+  googleBusinessProfile: "https://share.google/J0N0PGqgU7xqUJAJj",
+  googleReviewLink: "https://g.page/r/CZ5Y7fvuDcePEBM/review",
+  address: {
+    locality: "Piliyandala",
+    region: "Colombo",
+    countryCode: "LK",
+    display: "Piliyandala, Colombo, Sri Lanka",
+  },
   regions: ["Asia-Pacific", "Europe", "North America", "Middle East", "Australia"],
   responseCommitment: "We reply within 24 hours.",
 } as const;

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import FinalCta from "@/components/FinalCta";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { getAllPosts, getPost, formatPostDate } from "@/lib/blog";
 import { site } from "@/lib/data";
 
@@ -20,7 +21,7 @@ export async function generateMetadata({
   const post = getPost((await params).slug);
   if (!post) return {};
   return {
-    title: post.title,
+    title: post.seoTitle ?? post.title,
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}/` },
     openGraph: {
@@ -112,6 +113,12 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Blog", path: "/blog/" },
+          { name: post.title, path: `/blog/${post.slug}/` },
+        ]}
       />
     </>
   );

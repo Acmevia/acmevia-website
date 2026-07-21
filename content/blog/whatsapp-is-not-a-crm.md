@@ -1,5 +1,6 @@
 ---
 title: "WhatsApp is not a CRM: when message threads start costing you sales"
+seoTitle: "Why WhatsApp Is Not a CRM"
 description: "WhatsApp is where Sri Lankan business happens — and where leads quietly die. The signs your sales process has outgrown chat, and what a real CRM changes."
 date: 2026-07-01
 category: "Insights"

@@ -36,13 +36,19 @@ export const viewport: Viewport = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: site.legalName,
-  brand: site.name,
+  name: site.name,
+  legalName: site.legalName,
   url: site.url,
   logo: `${site.url}/icon.svg`,
+  image: `${site.url}/opengraph-image`,
   description:
     "Boutique software engineering partner delivering custom systems and SaaS products worldwide from Sri Lanka.",
-  address: { "@type": "PostalAddress", addressCountry: "LK" },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: site.address.locality,
+    addressRegion: site.address.region,
+    addressCountry: site.address.countryCode,
+  },
   areaServed: [...site.regions],
   contactPoint: [
     {
@@ -50,14 +56,18 @@ const organizationSchema = {
       contactType: "sales",
       email: site.emailSales,
       telephone: site.whatsapp.replace(/\s/g, ""),
+      areaServed: [...site.regions],
+      availableLanguage: ["English"],
     },
     {
       "@type": "ContactPoint",
       contactType: "customer support",
       email: site.emailSupport,
+      areaServed: [...site.regions],
+      availableLanguage: ["English"],
     },
   ],
-  sameAs: [site.linkedin, site.facebook],
+  sameAs: [site.facebook, site.linkedin, site.instagram, site.clutch, site.googleBusinessProfile],
 };
 
 /**

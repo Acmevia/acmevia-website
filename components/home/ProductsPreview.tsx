@@ -75,7 +75,7 @@ export default function ProductsPreview() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {featured.map((p, i) => (
-            <TiltCard key={p.id} index={i} href={`/products/#${p.id}`}>
+            <TiltCard key={p.id} index={i} href={`/products/${p.id}/`}>
               <p className="eyebrow text-paper/40">0{i + 1}</p>
               <h3 className="mt-5 font-display text-title font-medium text-paper">
                 {p.name}

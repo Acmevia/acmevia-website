@@ -5,8 +5,8 @@
       "name": "Acmevia LMS",
       "audience": "Schools · Universities · Tuition classes · Training centers",
       "tagline": "Run your entire institute from one screen.",
-      "problem": "",
-      "description": "A cloud-based learning management system for institutions that are done with paper registers and WhatsApp groups. Fully white-label — your name, your logo, your domain.",
+      "problem": "Admissions, attendance, and exam results tracked across paper registers and WhatsApp groups don't scale — every new intake widens the gap between growth and admin capacity.",
+      "description": "A cloud-based learning management system for institutions in Sri Lanka and beyond that are done with paper registers and WhatsApp groups. Fully white-label — your name, your logo, your domain.",
       "features": [
         {
           "title": "Student & course management",
@@ -41,8 +41,8 @@
       "name": "Hall Booking & Space Management",
       "audience": "Corporations · Universities · Hotels · Public institutions",
       "tagline": "Every room, every hour, one calendar.",
-      "problem": "",
-      "description": "A reservation system for organizations juggling multiple venues, halls, and meeting rooms. No more double bookings, phone-call chains, or paper diaries at the front desk.",
+      "problem": "A shared inbox and a paper diary can't stop two departments booking the same hall for the same hour — and nobody notices until both groups show up.",
+      "description": "A hall booking and space management system for organizations juggling multiple venues, halls, and meeting rooms. No more double bookings, phone-call chains, or paper diaries at the front desk.",
       "features": [
         {
           "title": "Multi-venue calendar",
@@ -73,8 +73,8 @@
       "name": "Distribution Management System + Mobile POS",
       "audience": "FMCG distributors · Wholesalers · Field sales operations",
       "tagline": "Know where every unit, rupee, and rep is — right now.",
-      "problem": "",
-      "description": "Real-time tracking of every unit, transaction, and agent in your distribution network. A mobile POS app for field agents, a live dashboard for management.",
+      "problem": "When field agents report sales by phone call and month-end stock counts never match what's in the van, distributors run on guesswork instead of numbers.",
+      "description": "A distribution management system with real-time tracking of every unit, transaction, and agent in your network — plus a mobile POS app for field agents and a live dashboard for management.",
       "features": [
         {
           "title": "Field-agent mobile POS",

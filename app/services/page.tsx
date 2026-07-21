@@ -5,13 +5,48 @@ import Magnetic from "@/components/Magnetic";
 import ServiceGlyph from "@/components/ServiceGlyph";
 import ServicesIndex from "@/components/services/ServicesIndex";
 import FinalCta from "@/components/FinalCta";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { services } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Services — Custom software, delivered end to end",
+  title: "Custom Software Development in Sri Lanka",
   description:
-    "Custom web and mobile development, WordPress, e-commerce, ERP, CRM, business automation, and UI/UX design. Each service starts with your problem and ends with a measurable outcome.",
+    "Custom software development in Sri Lanka: web, mobile, ERP, CRM, e-commerce, and business automation — built around your workflow. Book a free demo.",
   alternates: { canonical: "/services/" },
+};
+
+/** Long-tail keyword kickers under each service name — from the keyword tracker, one per service that has a distinct assigned term. */
+const serviceKeyword: Record<string, string> = {
+  "mobile-app-development": "Mobile app development in Sri Lanka",
+  "wordpress-websites": "WordPress website development in Sri Lanka",
+  ecommerce: "E-commerce website development in Sri Lanka",
+  "erp-systems": "Custom ERP developer in Sri Lanka",
+  "crm-systems": "CRM development in Sri Lanka",
+  "business-automation": "Business automation company in Sri Lanka",
+};
+
+/** Real proof only: a matching project case study, or — where none exists — related reading. */
+const serviceProof: Record<string, { label: string; href: string }> = {
+  "custom-web-development": {
+    label: "Case study: Corporate website for a B2B cutlery supplier",
+    href: "/projects/#mark-shell-corporate",
+  },
+  "mobile-app-development": {
+    label: "Case study: Dispatch app for a logistics operator",
+    href: "/projects/#app-logistics",
+  },
+  ecommerce: {
+    label: "Case study: E-commerce platform for a specialty retailer",
+    href: "/projects/#ecommerce-retail",
+  },
+  "erp-systems": {
+    label: "Case study: ERP rollout for a mid-size manufacturer",
+    href: "/projects/#erp-manufacturing",
+  },
+  "crm-systems": {
+    label: "Related reading: Why WhatsApp Is Not a CRM",
+    href: "/blog/whatsapp-is-not-a-crm/",
+  },
 };
 
 export default function ServicesPage() {
@@ -60,6 +95,11 @@ export default function ServicesPage() {
                     <h2 className="mt-3 font-display text-heading font-semibold text-paper">
                       {s.name}
                     </h2>
+                    {serviceKeyword[s.id] && (
+                      <p className="mt-1 font-mono text-label uppercase tracking-[0.14em] text-paper/40">
+                        {serviceKeyword[s.id]}
+                      </p>
+                    )}
                   </div>
                   <ServiceGlyph
                     glyph={s.glyph}
@@ -105,6 +145,18 @@ export default function ServicesPage() {
                 <p className="mt-3 text-lead text-paper">{s.outcome}</p>
               </Reveal>
 
+              {serviceProof[s.id] && (
+                <Reveal delay={0.13} className="mt-6">
+                  <Link
+                    href={serviceProof[s.id].href}
+                    className="inline-flex items-center gap-2 font-mono text-label uppercase tracking-[0.14em] text-azure-text"
+                  >
+                    {serviceProof[s.id].label}
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </Reveal>
+              )}
+
               <Reveal delay={0.15} className="mt-8">
                 <Magnetic>
                   <Link href="/contact/#book" className="btn btn-ghost">
@@ -132,6 +184,8 @@ export default function ServicesPage() {
       </div>
 
       <FinalCta title="Not sure which service fits? Describe the problem." />
+
+      <BreadcrumbSchema items={[{ name: "Services", path: "/services/" }]} />
     </>
   );
 }
