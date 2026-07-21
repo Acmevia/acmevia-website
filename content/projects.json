@@ -1,112 +1,139 @@
 {
   "items": [
     {
-      "id": "erp-manufacturing",
-      "title": "ERP rollout for a mid-size manufacturer",
-      "client": "Manufacturing",
-      "region": "Sri Lanka",
-      "year": "2021",
-      "solution": "ERP System",
-      "summary": "Finance, inventory, and production were living in seventeen spreadsheets. We built an ERP around their actual flow — from raw material intake to dispatch — and migrated five years of records.",
-      "metric": { "value": "-60%", "label": "order-processing time" },
       "meta": "MANUFACTURING // SRI LANKA // ERP // 2021",
-      "images": []
-    },
-    {
-      "id": "ecommerce-retail",
-      "title": "E-commerce platform for a specialty retailer",
-      "client": "Retail",
-      "region": "Australia",
-      "year": "2022",
-      "solution": "E-commerce",
-      "summary": "A growing retailer was losing buyers at checkout and overselling stock they didn't have. New storefront, live warehouse sync, and a checkout rebuilt around fewer decisions.",
-      "metric": { "value": "+34%", "label": "checkout conversion" },
-      "meta": "RETAIL // AUSTRALIA // E-COMMERCE // 2022",
-      "images": []
-    },
-    {
-      "id": "lms-training",
-      "title": "LMS deployment for a training institute",
-      "client": "Education",
-      "region": "Middle East",
-      "year": "2023",
-      "solution": "Acmevia LMS",
-      "summary": "Three thousand students, paper registers, and exam results compiled by hand. Acmevia LMS went live in six weeks — white-labelled, with online exams and automated grading.",
-      "metric": { "value": "-80%", "label": "administrative workload" },
-      "meta": "EDUCATION // MIDDLE EAST // LMS // 2023",
-      "images": []
-    },
-    {
-      "id": "dms-fmcg",
-      "title": "DMS + Mobile POS for an FMCG distributor",
-      "client": "Distribution",
-      "region": "Sri Lanka",
-      "year": "2023",
-      "solution": "DMS + Mobile POS",
-      "summary": "Forty routes, two hundred agents, and stock counts that never matched. Field agents got a mobile POS; management got a dashboard that updates by the second.",
-      "metric": { "value": "12,000", "label": "units tracked daily, live" },
-      "meta": "FMCG // SRI LANKA // DMS + POS // 2023",
-      "images": []
-    },
-    {
-      "id": "hall-university",
-      "title": "Space management for a university campus",
-      "client": "Higher education",
-      "region": "Europe",
-      "year": "2024",
-      "solution": "Hall Booking System",
-      "summary": "Ninety bookable spaces managed through a shared inbox. The booking system replaced it with one calendar, approval routing, and utilization reports the estates team runs monthly.",
-      "metric": { "value": "0", "label": "double bookings since launch" },
-      "meta": "EDUCATION // EUROPE // HALL BOOKING // 2024",
-      "images": []
-    },
-    {
-      "id": "app-logistics",
-      "title": "Dispatch app for a logistics operator",
-      "client": "Logistics",
-      "region": "North America",
-      "year": "2025",
-      "solution": "Mobile App",
-      "summary": "Dispatchers coordinated drivers by phone call and printed manifests. A driver app with live job queues and proof-of-delivery replaced the whiteboard.",
-      "metric": { "value": "9min", "label": "average dispatch — down from hours" },
-      "meta": "LOGISTICS // NORTH AMERICA // MOBILE APP // 2025",
-      "images": []
-    },
-    {
-      "id": "getrides-marketplace",
-      "title": "Ride marketplace platform with driver bidding",
-      "client": "Mobility",
-      "region": "Sri Lanka",
-      "year": "2026",
-      "solution": "Marketplace Platform",
-      "summary": "Riders had no way to compare drivers on price, vehicle, or rating before booking. We built a marketplace where verified drivers bid on trips and travelers choose on offer, vehicle type, and rating — with booking, auth, and an international payment gateway on a React/Node stack, connecting tourists with local drivers.",
-      "metric": { "value": "7,000+", "label": "verified drivers on the platform" },
-      "meta": "MOBILITY // SRI LANKA // MARKETPLACE PLATFORM // 2026",
-      "images": []
-    },
-    {
-      "id": "mark-shell-corporate",
-      "title": "Corporate website for a B2B cutlery supplier",
+      "summary": "Finance, inventory, and production were living in seventeen spreadsheets. We built an ERP around their actual flow — from raw material intake to dispatch — and migrated five years of records.",
       "client": "Manufacturing",
+      "metric": {
+        "value": "-60%",
+        "label": "order-processing time"
+      },
       "region": "Sri Lanka",
-      "year": "2026",
-      "solution": "Corporate Website",
-      "summary": "A premium B2B sustainable-cutlery supplier had no online catalog to convert international buyers. We shipped a high-performance corporate site on Next.js with a custom CMS, so the product catalog grows with the company — fast, mobile-first, and built to capture qualified leads via direct WhatsApp inquiry.",
-      "metric": { "value": "15min", "label": "average whatsapp inquiry response" },
-      "meta": "MANUFACTURING // SRI LANKA // WEB // 2026",
-      "images": []
+      "title": "ERP rollout for a mid-size manufacturer",
+      "images": [],
+      "solution": "ERP System",
+      "id": "erp-manufacturing",
+      "year": "2021"
     },
     {
-      "id": "fitzone-gym",
-      "title": "Gym management system for members and plans",
-      "client": "Fitness",
-      "region": "India",
-      "year": "2025",
-      "solution": "Management System",
-      "summary": "A gym was tracking members, plans, and attendance by hand. We built a web-based management system with an admin panel that handles memberships, plan assignment, and attendance in one place.",
-      "metric": { "value": "23hrs", "label": "saved on admin work every week" },
+      "meta": "RETAIL // AUSTRALIA // E-COMMERCE // 2022",
+      "summary": "A growing retailer was losing buyers at checkout and overselling stock they didn't have. New storefront, live warehouse sync, and a checkout rebuilt around fewer decisions.",
+      "client": "Retail",
+      "metric": {
+        "value": "+34%",
+        "label": "checkout conversion"
+      },
+      "region": "Australia",
+      "title": "E-commerce platform for a specialty retailer",
+      "images": [],
+      "solution": "E-commerce",
+      "id": "ecommerce-retail",
+      "year": "2022"
+    },
+    {
+      "meta": "EDUCATION // MIDDLE EAST // LMS // 2023",
+      "summary": "Three thousand students, paper registers, and exam results compiled by hand. Acmevia LMS went live in six weeks — white-labelled, with online exams and automated grading.",
+      "client": "Education",
+      "metric": {
+        "value": "-80%",
+        "label": "administrative workload"
+      },
+      "region": "Middle East",
+      "title": "LMS deployment for a training institute",
+      "images": [],
+      "solution": "Acmevia LMS",
+      "id": "lms-training",
+      "year": "2023"
+    },
+    {
+      "meta": "FMCG // SRI LANKA // DMS + POS // 2023",
+      "summary": "Forty routes, two hundred agents, and stock counts that never matched. Field agents got a mobile POS; management got a dashboard that updates by the second.",
+      "client": "Distribution",
+      "metric": {
+        "value": "12,000",
+        "label": "units tracked daily, live"
+      },
+      "region": "Sri Lanka",
+      "title": "DMS + Mobile POS for an FMCG distributor",
+      "images": [],
+      "solution": "DMS + Mobile POS",
+      "id": "dms-fmcg",
+      "year": "2023"
+    },
+    {
+      "meta": "EDUCATION // EUROPE // HALL BOOKING // 2024",
+      "summary": "Ninety bookable spaces managed through a shared inbox. The booking system replaced it with one calendar, approval routing, and utilization reports the estates team runs monthly.",
+      "client": "Higher education",
+      "metric": {
+        "value": "0",
+        "label": "double bookings since launch"
+      },
+      "region": "Europe",
+      "title": "Space management for a university campus",
+      "images": [],
+      "solution": "Hall Booking System",
+      "id": "hall-university",
+      "year": "2024"
+    },
+    {
+      "meta": "LOGISTICS // NORTH AMERICA // MOBILE APP // 2025",
+      "summary": "Dispatchers coordinated drivers by phone call and printed manifests. A driver app with live job queues and proof-of-delivery replaced the whiteboard.",
+      "client": "Logistics",
+      "metric": {
+        "value": "9min",
+        "label": "average dispatch — down from hours"
+      },
+      "region": "North America",
+      "title": "Dispatch app for a logistics operator",
+      "images": [],
+      "solution": "Mobile App",
+      "id": "app-logistics",
+      "year": "2025"
+    },
+    {
       "meta": "FITNESS // INDIA // MANAGEMENT SYSTEM // 2025",
-      "images": []
+      "summary": "A gym was tracking members, plans, and attendance by hand. We built a web-based management system with an admin panel that handles memberships, plan assignment, and attendance in one place.",
+      "client": "Fitness",
+      "metric": {
+        "value": "23hrs",
+        "label": "saved on admin work every week"
+      },
+      "region": "India",
+      "title": "Gym management system for members and plans",
+      "images": [],
+      "solution": "Management System",
+      "id": "fitzone-gym",
+      "year": "2025"
+    },
+    {
+      "meta": "MOBILITY // SRI LANKA // MARKETPLACE PLATFORM // 2026",
+      "summary": "Riders had no way to compare drivers on price, vehicle, or rating before booking. We built a marketplace where verified drivers bid on trips and travelers choose on offer, vehicle type, and rating — with booking, auth, and an international payment gateway on a React/Node stack, connecting tourists with local drivers.",
+      "client": "Mobility",
+      "metric": {
+        "value": "7,000+",
+        "label": "verified drivers on the platform"
+      },
+      "region": "Sri Lanka",
+      "title": "Ride marketplace platform with driver bidding",
+      "images": [],
+      "solution": "Marketplace Platform",
+      "id": "getrides-marketplace",
+      "year": "2026"
+    },
+    {
+      "meta": "MANUFACTURING // SRI LANKA // WEB // 2026",
+      "summary": "A premium B2B sustainable-cutlery supplier had no online catalog to convert international buyers. We shipped a high-performance corporate site on Next.js with a custom CMS, so the product catalog grows with the company — fast, mobile-first, and built to capture qualified leads via direct WhatsApp inquiry.",
+      "client": "Manufacturing",
+      "metric": {
+        "value": "15min",
+        "label": "average whatsapp inquiry response"
+      },
+      "region": "Sri Lanka",
+      "title": "Corporate website for a B2B cutlery supplier",
+      "images": [],
+      "solution": "Corporate Website",
+      "id": "mark-shell-corporate",
+      "year": "2026"
     }
   ]
 }
