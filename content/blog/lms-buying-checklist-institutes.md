@@ -21,7 +21,7 @@ If you're evaluating an LMS, this is the checklist we'd use in your seat. It app
 
 **4. Fee tracking tied to enrolment.** Who has paid, who hasn't, and what happens to access when they haven't — in one place. Chasing fees through chat messages is how revenue leaks.
 
-**5. Your brand, not theirs.** If students see the vendor's logo and domain, you are renting your own institute's identity. White-label — [your name, your logo, your domain](/products/#lms) — should be standard, not premium.
+**5. Your brand, not theirs.** If students see the vendor's logo and domain, you are renting your own institute's identity. White-label — [your name, your logo, your domain](/products/lms/) — should be standard, not premium.
 
 ## Questions that expose weak vendors
 
@@ -37,6 +37,6 @@ Gamification badges, AI study companions, virtual-reality classrooms — if the 
 
 ## The one-week test
 
-Whatever you choose, insist on a pilot: one batch, one real teacher, one real exam, before the full rollout. A vendor confident in their system will agree readily. [Acmevia LMS](/products/#lms) went live at a 3,000-student institute in six weeks precisely because the pilot had already answered every hard question — and administrative workload dropped by 80% after the switch.
+Whatever you choose, insist on a pilot: one batch, one real teacher, one real exam, before the full rollout. A vendor confident in their system will agree readily. [Acmevia LMS](/products/lms/) went live at a 3,000-student institute in six weeks precisely because the pilot had already answered every hard question — and administrative workload dropped by 80% after the switch.
 
 If your registers are still paper and your parent communication is still a group chat, [book a free demo](/contact/#book). Bring your current enrolment sheet — we'll show you the same institute, running on one screen.
