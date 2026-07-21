@@ -71,6 +71,42 @@
       "metric": { "value": "9min", "label": "average dispatch — down from hours" },
       "meta": "LOGISTICS // NORTH AMERICA // MOBILE APP // 2025",
       "images": []
+    },
+    {
+      "id": "getrides-marketplace",
+      "title": "Ride marketplace platform with driver bidding",
+      "client": "Mobility",
+      "region": "Sri Lanka",
+      "year": "2026",
+      "solution": "Marketplace Platform",
+      "summary": "Riders had no way to compare drivers on price, vehicle, or rating before booking. We built a marketplace where verified drivers bid on trips and travelers choose on offer, vehicle type, and rating — with booking, auth, and an international payment gateway on a React/Node stack, connecting tourists with local drivers.",
+      "metric": { "value": "7,000+", "label": "verified drivers on the platform" },
+      "meta": "MOBILITY // SRI LANKA // MARKETPLACE PLATFORM // 2026",
+      "images": []
+    },
+    {
+      "id": "mark-shell-corporate",
+      "title": "Corporate website for a B2B cutlery supplier",
+      "client": "Manufacturing",
+      "region": "Sri Lanka",
+      "year": "2026",
+      "solution": "Corporate Website",
+      "summary": "A premium B2B sustainable-cutlery supplier had no online catalog to convert international buyers. We shipped a high-performance corporate site on Next.js with a custom CMS, so the product catalog grows with the company — fast, mobile-first, and built to capture qualified leads via direct WhatsApp inquiry.",
+      "metric": { "value": "15min", "label": "average whatsapp inquiry response" },
+      "meta": "MANUFACTURING // SRI LANKA // WEB // 2026",
+      "images": []
+    },
+    {
+      "id": "fitzone-gym",
+      "title": "Gym management system for members and plans",
+      "client": "Fitness",
+      "region": "India",
+      "year": "2025",
+      "solution": "Management System",
+      "summary": "A gym was tracking members, plans, and attendance by hand. We built a web-based management system with an admin panel that handles memberships, plan assignment, and attendance in one place.",
+      "metric": { "value": "23hrs", "label": "saved on admin work every week" },
+      "meta": "FITNESS // INDIA // MANAGEMENT SYSTEM // 2025",
+      "images": []
     }
   ]
 }
