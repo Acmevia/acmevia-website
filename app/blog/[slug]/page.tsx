@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import FinalCta from "@/components/FinalCta";
-import { getAllPosts, getPost, formatPostDate } from "@/lib/blog";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { getAllPosts, getPost, getAuthor, formatPostDate } from "@/lib/blog";
 import { site } from "@/lib/data";
 
 export const dynamicParams = false;
@@ -20,7 +21,7 @@ export async function generateMetadata({
   const post = getPost((await params).slug);
   if (!post) return {};
   return {
-    title: post.title,
+    title: post.seoTitle ?? post.title,
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}/` },
     openGraph: {
@@ -40,13 +41,22 @@ export default async function BlogPostPage({
   const post = getPost((await params).slug);
   if (!post) notFound();
 
+  const author = getAuthor(post.author);
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: { "@type": "Organization", name: site.name, url: site.url },
+    author: author
+      ? {
+          "@type": "Person",
+          name: author.name,
+          jobTitle: author.role,
+          worksFor: { "@type": "Organization", name: site.legalName, url: site.url },
+        }
+      : { "@type": "Organization", name: site.name, url: site.url },
     publisher: { "@type": "Organization", name: site.legalName, url: site.url },
     mainEntityOfPage: `${site.url}/blog/${post.slug}/`,
   };
@@ -67,6 +77,12 @@ export default async function BlogPostPage({
               <p className="mt-6 max-w-2xl text-lead text-paper/60">
                 {post.description}
               </p>
+              {author && (
+                <p className="mt-6 font-mono text-label uppercase tracking-[0.14em] text-paper/50">
+                  {author.name}{" "}
+                  <span className="text-paper/40">· {author.role}</span>
+                </p>
+              )}
             </Reveal>
           </div>
         </header>
@@ -92,7 +108,14 @@ export default async function BlogPostPage({
 
           <Reveal delay={0.1} className="mt-16 max-w-3xl border-t border-paper/10 pt-8">
             <p className="font-mono text-label uppercase tracking-[0.14em] text-paper/40">
-              Written by the Acmevia team
+              {author ? (
+                <>
+                  Written by {author.name} —{" "}
+                  <span className="text-paper/60">{author.role}</span>
+                </>
+              ) : (
+                "Written by the Acmevia team"
+              )}
             </p>
             <Link
               href="/blog/"
@@ -112,6 +135,12 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Blog", path: "/blog/" },
+          { name: post.title, path: `/blog/${post.slug}/` },
+        ]}
       />
     </>
   );

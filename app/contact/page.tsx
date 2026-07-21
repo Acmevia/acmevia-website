@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/contact/ContactForm";
 import BookDemo from "@/components/contact/BookDemo";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -60,9 +61,22 @@ export default function ContactPage() {
                   {site.whatsapp}
                 </a>
               </div>
+              <div>
+                <p className="eyebrow text-paper/40">Call</p>
+                <a
+                  href={`tel:${site.whatsapp.replace(/\s/g, "")}`}
+                  className="mt-1 inline-block text-lead text-paper transition-colors hover:text-azure-text"
+                >
+                  {site.whatsapp}
+                </a>
+              </div>
               <p className="border-l-2 border-azure pl-4 font-mono text-label uppercase tracking-[0.14em] text-paper/50">
                 {site.responseCommitment} Every channel, every timezone.
               </p>
+              <div>
+                <p className="eyebrow text-paper/40">Location</p>
+                <p className="mt-1 text-lead text-paper">{site.address.display}</p>
+              </div>
             </Reveal>
           </div>
 
@@ -87,6 +101,8 @@ export default function ContactPage() {
           </Reveal>
         </div>
       </section>
+
+      <BreadcrumbSchema items={[{ name: "Contact", path: "/contact/" }]} />
     </>
   );
 }

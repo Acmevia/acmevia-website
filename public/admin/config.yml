@@ -35,8 +35,15 @@ collections:
     description: "Each post is a page at /blog/<slug>/. Posts marked Draft are hidden from the site."
     fields:
       - { label: "Title", name: "title", widget: "string", hint: "Also the Google result headline — put the key phrase in it." }
+      - { label: "SEO title (optional)", name: "seoTitle", widget: "string", required: false, hint: "Shorter <title> tag for search results, ≤50 characters. Leave empty to reuse Title." }
       - { label: "Description", name: "description", widget: "text", hint: "1–2 sentences, ~160 characters. Shown on the blog index and in Google results." }
       - { label: "Publish date", name: "date", widget: "datetime", time_format: false }
+      - label: "Author"
+        name: "author"
+        widget: "select"
+        required: false
+        options: ["Sasantha Perera", "Sandeep Kahawatta", "Thilan Randika"]
+        hint: "The named author — shows as the byline and powers Person schema (EEAT). Leave empty for team-authored posts."
       - label: "Category"
         name: "category"
         widget: "select"
@@ -188,7 +195,7 @@ collections:
       - name: "reviews"
         label: "Reviews"
         file: "content/reviews.json"
-        description: "Client reviews. 'Featured' ones appear on the home page reviews section; the first two NON-featured ones appear as pull quotes in the white outcomes band. All reviews show on the About page."
+        description: "PLACEHOLDER REVIEWS — replace with real Google/Clutch/LinkedIn reviews before relying on these. Do not present placeholder testimonials as real. 'Featured' ones appear on the home page reviews section; the first two NON-featured ones appear as pull quotes in the white outcomes band. All reviews show on the About page."
         fields:
           - label: "Reviews"
             name: "items"

@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import FinalCta from "@/components/FinalCta";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { getAllPosts, formatPostDate } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog — Plain answers about software for real operations",
+  title: "Blog — Plain Answers About Business Software",
   description:
-    "Guides and plain-language insights from Acmevia: ERP costs, CRM adoption, LMS buying advice, and what actually works when businesses replace spreadsheets with systems.",
+    "Guides and plain-language insights from Acmevia: ERP costs, CRM adoption, and LMS buying advice — what works when businesses replace spreadsheets.",
   alternates: { canonical: "/blog/" },
 };
 
@@ -45,6 +46,9 @@ export default function BlogIndexPage() {
                     <span className="mt-1.5 block text-azure-text">
                       {post.category} · {post.readingMinutes} min read
                     </span>
+                    {post.author && (
+                      <span className="mt-1.5 block text-paper/40">{post.author}</span>
+                    )}
                   </p>
                   <div>
                     <h2 className="max-w-3xl font-display text-title font-semibold text-paper transition-colors duration-300 group-hover:text-azure-text">
@@ -71,6 +75,8 @@ export default function BlogIndexPage() {
       </section>
 
       <FinalCta title="Rather talk it through than read about it?" />
+
+      <BreadcrumbSchema items={[{ name: "Blog", path: "/blog/" }]} />
     </>
   );
 }

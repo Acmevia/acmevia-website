@@ -4,12 +4,13 @@ import SectionHead from "@/components/SectionHead";
 import GlobalMap from "@/components/about/GlobalMap";
 import FinalCta from "@/components/FinalCta";
 import ReviewCard from "@/components/ReviewCard";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { capabilities, values, reviews } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "About — A boutique engineering partner in Sri Lanka",
+  title: "About — Boutique Software Partner in Sri Lanka",
   description:
-    "Acmevia builds custom software and SaaS products from Sri Lanka for clients across five regions. Partnership over projects, systems over heroics, automation-first operations.",
+    "Acmevia builds custom software and SaaS products from Sri Lanka for clients across five regions — partnership over projects, systems over heroics.",
   alternates: { canonical: "/about/" },
 };
 
@@ -139,6 +140,8 @@ export default function AboutPage() {
       </section>
 
       <FinalCta title="Meet the team behind the systems." />
+
+      <BreadcrumbSchema items={[{ name: "About", path: "/about/" }]} />
     </>
   );
 }

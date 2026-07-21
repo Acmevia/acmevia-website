@@ -11,7 +11,7 @@ import FinalCta from "@/components/FinalCta";
 export const metadata: Metadata = {
   title: "Acmevia — Software built for how your business actually works",
   description:
-    "Boutique software engineering from Sri Lanka. Custom systems, ERP, CRM, e-commerce, mobile apps, and SaaS products delivered across five regions. Book a free demo.",
+    "Acmevia: boutique software engineering from Sri Lanka — custom systems, ERP, CRM, e-commerce, and SaaS products delivered worldwide. Book a free demo.",
   alternates: { canonical: "/" },
 };
 

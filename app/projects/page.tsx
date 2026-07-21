@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import ProjectTimeline from "@/components/projects/ProjectTimeline";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { projects } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Projects — Systems shipped across five regions",
   description:
-    "A connected timeline of Acmevia engagements: ERP, e-commerce, LMS, DMS, space management, and mobile — delivered from Sri Lanka to Australia, Europe, the Middle East, and North America.",
+    "A connected timeline of Acmevia engagements — ERP, e-commerce, LMS, DMS, and mobile — delivered from Sri Lanka to Australia, Europe, and North America.",
   alternates: { canonical: "/projects/" },
 };
 
@@ -33,6 +34,8 @@ export default function ProjectsPage() {
           <ProjectTimeline projects={projects} />
         </div>
       </section>
+
+      <BreadcrumbSchema items={[{ name: "Projects", path: "/projects/" }]} />
     </>
   );
 }
