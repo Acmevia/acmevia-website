@@ -17,10 +17,24 @@ export type BlogPost = {
   description: string;
   date: string; // ISO
   category: string;
+  author?: string; // display name — resolved against `authors` below
   cover?: { src: string; alt: string };
   readingMinutes: number;
   html: string;
 };
+
+export type Author = { name: string; role: string };
+
+/** Real, named post authors — powers the byline and Person schema (EEAT). */
+export const authors: Record<string, Author> = {
+  "Sasantha Perera": { name: "Sasantha Perera", role: "Full-Stack Product Engineer" },
+  "Sandeep Kahawatta": { name: "Sandeep Kahawatta", role: "Full-Stack Product Engineer" },
+  "Thilan Randika": { name: "Thilan Randika", role: "Full-Stack Product Engineer" },
+};
+
+export function getAuthor(name?: string): Author | undefined {
+  return name ? authors[name] : undefined;
+}
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
@@ -37,6 +51,7 @@ function parsePost(filename: string): BlogPost | null {
     description: String(data.description ?? ""),
     date: new Date(data.date ?? Date.now()).toISOString(),
     category: String(data.category ?? "Insights"),
+    author: data.author ? String(data.author) : undefined,
     cover: data.cover?.src ? { src: data.cover.src, alt: data.cover.alt ?? "" } : undefined,
     readingMinutes: Math.max(1, Math.round(words / 200)),
     html: marked.parse(content, { async: false }) as string,

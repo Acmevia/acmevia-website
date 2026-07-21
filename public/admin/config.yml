@@ -38,6 +38,12 @@ collections:
       - { label: "SEO title (optional)", name: "seoTitle", widget: "string", required: false, hint: "Shorter <title> tag for search results, ≤50 characters. Leave empty to reuse Title." }
       - { label: "Description", name: "description", widget: "text", hint: "1–2 sentences, ~160 characters. Shown on the blog index and in Google results." }
       - { label: "Publish date", name: "date", widget: "datetime", time_format: false }
+      - label: "Author"
+        name: "author"
+        widget: "select"
+        required: false
+        options: ["Sasantha Perera", "Sandeep Kahawatta", "Thilan Randika"]
+        hint: "The named author — shows as the byline and powers Person schema (EEAT). Leave empty for team-authored posts."
       - label: "Category"
         name: "category"
         widget: "select"

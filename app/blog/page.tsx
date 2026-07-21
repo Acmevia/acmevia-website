@@ -46,6 +46,9 @@ export default function BlogIndexPage() {
                     <span className="mt-1.5 block text-azure-text">
                       {post.category} · {post.readingMinutes} min read
                     </span>
+                    {post.author && (
+                      <span className="mt-1.5 block text-paper/40">{post.author}</span>
+                    )}
                   </p>
                   <div>
                     <h2 className="max-w-3xl font-display text-title font-semibold text-paper transition-colors duration-300 group-hover:text-azure-text">
